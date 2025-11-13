@@ -1,0 +1,2652 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+
+    <title>Homepage</title>
+    <!-- Add Firebase SDK -->
+    <script src="https://www.gstatic.com/firebasejs/8.6.5/firebase-app.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/8.6.5/firebase-auth.js"></script>
+  
+    <script>
+      // Initialize Firebase with your project's config
+      var firebaseConfig = {
+ apiKey: "AIzaSyDMEwjbVeqk5BZftkfz8fh0-8105FZYHkI",
+  authDomain: "qrtists-5ba2e.firebaseapp.com",
+  projectId: "qrtists-5ba2e",
+  storageBucket: "qrtists-5ba2e.firebasestorage.app",
+  messagingSenderId: "915309919101",
+  appId: "1:915309919101:web:efbb24192ea874a6a06a14",
+      };
+      firebase.initializeApp(firebaseConfig);
+  
+      // Wait for authManager to be ready, then check auth state
+      function checkAuthState() {
+        // Wait a bit for authManager to initialize
+        setTimeout(() => {
+          if (window.authManager) {
+            window.authManager.checkAuthState();
+          }
+        }, 100);
+      }
+      
+      // Also check when DOM is ready
+      if (document.readyState === 'loading') {
+        document.addEventListener('DOMContentLoaded', checkAuthState);
+      } else {
+        checkAuthState();
+      }
+    </script>
+  </head>
+  <body>
+
+
+
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>QRtists</title>
+  
+  <link rel="stylesheet" href="css/style.css" />
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+  <link rel="icon" type="image/x-icon" href="favicon.ico" />
+  <link rel="icon" type="image/png" sizes="32x32" href="favicon-32x32.png">
+  <link rel="icon" type="image/png" sizes="16x16" href="favicon-16x16.png">
+  <script async src="https://www.googletagmanager.com/gtag/js?id=G-08H0KSCE2S"></script>
+  <script>
+    window.dataLayer = window.dataLayer || [];
+    function gtag(){dataLayer.push(arguments);}
+    gtag('js', new Date());
+    gtag('config', 'G-08H0KSCE2S');
+  </script>
+  
+  <!-- Enhanced Analytics Tracking -->
+  <script src="js/analytics-enhanced.js"></script>
+  
+  <!-- Supabase -->
+  <script src="https://unpkg.com/@supabase/supabase-js@2"></script>
+  
+  <!-- Auth CSS -->
+  <link rel="stylesheet" href="css/auth.css" />
+  <style>
+    /* minimal design */
+    :root {
+      --typewriter: 'Lucida Console';
+      --sans: 'Inter', -apple-system, BlinkMacSystemFont, sans-serif;
+    }
+
+    body {
+      font-family: 'Inter', -apple-system, BlinkMacSystemFont, sans-serif;
+      line-height: 1.6;
+      color: #000;
+      background: #fff;
+      margin: 0;
+      padding: 0;
+    }
+
+    html {
+      scroll-behavior: smooth;
+    }
+    
+    h1, h2, h3, h4, h5, h6 {
+      font-family: Arial, sans-serif !important;
+      font-weight: bold !important;
+    }
+
+    /* Ensure all headers use Arial bold, including specific contexts */
+    .bento-card h1, .bento-card h2, .bento-card h3, .bento-card h4, .bento-card h5, .bento-card h6,
+    .hero-section h1, .hero-section h2, .hero-section h3, .hero-section h4, .hero-section h5, .hero-section h6,
+    .floating-highlights h1, .floating-highlights h2, .floating-highlights h3, .floating-highlights h4, .floating-highlights h5, .floating-highlights h6,
+    .coffee-connections-content h1, .coffee-connections-content h2, .coffee-connections-content h3, .coffee-connections-content h4, .coffee-connections-content h5, .coffee-connections-content h6 {
+      font-family: Arial, sans-serif !important;
+      font-weight: bold !important;
+    }
+
+    .main-header {
+      background: #fff;
+      border-bottom: 1px solid #e5e5e5;
+      padding: 1rem 0;
+      position: sticky;
+      top: 0;
+      z-index: 100;
+      box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+    }
+
+    .header-container {
+      max-width: 1200px;
+      margin: 0 auto;
+      padding: 0 2rem;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      position: relative;
+    }
+
+    .logo {
+      position: absolute;
+      left: 2rem;
+    }
+
+    .main-nav {
+      display: flex;
+      gap: 2rem;
+      align-items: center;
+      justify-content: center;
+      flex: 1;
+    }
+
+    .logo {
+      font-size: 1.5rem;
+      font-weight: 700;
+      color: #000;
+      text-decoration: none;
+      letter-spacing: -0.02em;
+    }
+
+    .main-nav {
+      display: flex;
+      gap: 2rem;
+      align-items: center;
+    }
+
+    .main-nav a {
+      color: #000;
+      text-decoration: none;
+      font-weight: 500;
+      transition: none;
+    }
+
+    .main-nav a:hover,
+    .main-nav a.active {
+      color: #000;
+      font-weight: 500;
+      transition: none;
+    }
+
+    .join-highlight {
+      background: transparent !important;
+      color: #000 !important;
+      padding: 0.75rem 1.5rem !important;
+      border-radius: 0 !important;
+      font-weight: 600 !important;
+      box-shadow: none !important;
+      animation: none !important;
+      transition: none !important;
+      position: relative !important;
+      overflow: visible !important;
+      border: none !important;
+      text-decoration: none !important;
+      display: inline-block !important;
+      transform: none !important;
+    }
+
+    .join-highlight::before {
+      display: none !important;
+      content: none !important;
+    }
+
+    .join-highlight:hover {
+      background: transparent !important;
+      transform: none !important;
+      color: #000 !important;
+      box-shadow: none !important;
+      scale: 1 !important;
+    }
+
+    .join-highlight:active {
+      background: transparent !important;
+      transform: none !important;
+      box-shadow: none !important;
+    }
+
+    /* Ensure plus icon is black to match the button text */
+    .join-highlight span {
+      color: #000 !important;
+    }
+
+    /* Override external CSS more aggressively */
+    .main-nav .join-highlight,
+    nav .join-highlight,
+    header .join-highlight {
+      background: transparent !important;
+      box-shadow: none !important;
+      animation: none !important;
+    }
+
+    .main-nav .join-highlight:hover,
+    nav .join-highlight:hover,
+    header .join-highlight:hover {
+      background: transparent !important;
+      box-shadow: none !important;
+      transform: none !important;
+      scale: 1 !important;
+    }
+
+    .social-nav-link {
+      display: flex;
+      align-items: center;
+    }
+
+    .nav-icon {
+      width: 20px;
+      height: 20px;
+    }
+
+    /* Mobile Hamburger Menu Button */
+    .mobile-menu-toggle {
+      display: none;
+      flex-direction: column;
+      justify-content: space-between;
+      width: 24px;
+      height: 18px;
+      background: transparent;
+      border: none;
+      cursor: pointer;
+      padding: 0;
+      z-index: 1001;
+      position: relative;
+      margin-left: auto;
+    }
+
+    .mobile-menu-toggle span {
+      display: block;
+      width: 100%;
+      height: 2px;
+      background: #000;
+      border-radius: 0;
+      transition: all 0.2s ease;
+    }
+
+    .mobile-menu-toggle.active span:nth-child(1) {
+      transform: translateY(8px) rotate(45deg);
+    }
+
+    .mobile-menu-toggle.active span:nth-child(2) {
+      opacity: 0;
+    }
+
+    .mobile-menu-toggle.active span:nth-child(3) {
+      transform: translateY(-8px) rotate(-45deg);
+    }
+
+    /* Mobile Menu Container */
+    .mobile-nav {
+      display: none;
+      position: fixed;
+      top: 0;
+      right: 0;
+      width: 280px;
+      height: 100vh;
+      background: #fff;
+      box-shadow: -2px 0 8px rgba(0, 0, 0, 0.1);
+      z-index: 1000;
+      padding: 4rem 0 2rem 0;
+      overflow-y: auto;
+      flex-direction: column;
+    }
+
+    .mobile-nav.active {
+      display: flex;
+    }
+
+    .mobile-nav-item {
+      display: flex;
+      align-items: center;
+      gap: 1rem;
+      padding: 1rem 2rem;
+      color: #000;
+      text-decoration: none;
+      font-size: 1rem;
+      font-weight: 400;
+      border-bottom: 1px solid #f0f0f0;
+      transition: background 0.2s ease;
+    }
+
+    .mobile-nav-item:first-child {
+      border-top: 1px solid #f0f0f0;
+    }
+
+    .mobile-nav-item:hover {
+      background: #f8f8f8;
+    }
+
+    .mobile-nav-item .nav-icon {
+      width: 20px;
+      height: 20px;
+      flex-shrink: 0;
+    }
+
+    /* Mobile menu overlay */
+    .mobile-nav-overlay {
+      display: none;
+      position: fixed;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      background: rgba(0, 0, 0, 0.3);
+      z-index: 999;
+    }
+
+    .mobile-nav-overlay.active {
+      display: block;
+    }
+
+
+    .dashboard-container {
+      max-width: 1200px;
+      margin: 0 auto;
+      padding: 4rem 2rem 0 2rem;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+    }
+
+    /* Purple Gradient Glossy Button */
+    .start-imagining-button {
+      font-size: 1rem;
+      font-weight: 600;
+      padding: 0.875rem 1.75rem;
+      border-radius: 12px;
+      border: 1px solid rgba(147, 51, 234, 0.4);
+      display: inline-flex;
+      align-items: center;
+      gap: 0.5rem;
+      cursor: pointer;
+      text-decoration: none;
+      transition: all 0.3s ease;
+      justify-content: center;
+      position: relative;
+      overflow: hidden;
+      background: linear-gradient(180deg, 
+        rgba(196, 181, 253, 0.9) 0%, 
+        rgba(221, 214, 254, 0.95) 30%,
+        rgba(237, 233, 254, 0.98) 50%,
+        rgba(221, 214, 254, 0.95) 70%,
+        rgba(196, 181, 253, 0.9) 100%);
+      color: #6b21a8;
+      box-shadow: 0 4px 20px rgba(147, 51, 234, 0.3), 
+                  0 0 0 1px rgba(147, 51, 234, 0.2) inset;
+    }
+
+    .start-imagining-button::before {
+      content: '';
+      position: absolute;
+      top: 0;
+      left: 0;
+      right: 0;
+      height: 50%;
+      background: linear-gradient(180deg, 
+        rgba(255, 255, 255, 0.6) 0%, 
+        rgba(255, 255, 255, 0.3) 50%,
+        transparent 100%);
+      border-radius: 12px 12px 0 0;
+      pointer-events: none;
+    }
+
+    .start-imagining-button:hover {
+      transform: translateY(-2px);
+      box-shadow: 0 6px 25px rgba(147, 51, 234, 0.4), 
+                  0 0 0 1px rgba(147, 51, 234, 0.3) inset;
+      border-color: rgba(147, 51, 234, 0.5);
+    }
+
+    .start-imagining-button:active {
+      transform: translateY(0);
+      box-shadow: 0 2px 15px rgba(147, 51, 234, 0.3), 
+                  0 0 0 1px rgba(147, 51, 234, 0.2) inset;
+    }
+
+    /* Secondary CTA Button Styles */
+    .cta-button.secondary {
+      background: #f0f8ff;
+      color: #000;
+      border: 1px solid #e6f3ff;
+      text-decoration: none;
+      font-weight: 600;
+      transition: all 0.2s ease;
+    }
+
+    .cta-button.secondary:hover {
+      background: #e6f3ff;
+      transform: translateY(-1px);
+      box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+    }
+
+    /* Glowing shine effect for secondary button */
+    .cta-button.secondary {
+      position: relative;
+      overflow: hidden;
+    }
+
+    .cta-button.secondary::before {
+      content: '';
+      position: absolute;
+      top: -2px;
+      left: -2px;
+      right: -2px;
+      bottom: -2px;
+      background: linear-gradient(90deg, 
+        transparent 0%, 
+        rgba(255, 255, 255, 0.8) 25%, 
+        rgba(255, 255, 255, 1) 50%, 
+        rgba(255, 255, 255, 0.8) 75%, 
+        transparent 100%);
+      border-radius: 50px;
+      z-index: -1;
+      animation: shineGlow 3s linear infinite;
+      filter: blur(1px);
+    }
+
+    @keyframes shineGlow {
+      0% {
+        transform: translateX(-100%) rotate(0deg);
+      }
+      100% {
+        transform: translateX(100%) rotate(360deg);
+      }
+    }
+
+    /* Search Bar Styles */
+    .search-bar-container {
+      display: inline-flex;
+      align-items: center;
+      background: #fff;
+      border: 2px solid #e5e7eb;
+      border-radius: 3rem;
+      padding: 0.5rem 1.5rem;
+      box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+      transition: all 0.3s ease;
+      width: 420px;
+      height: 48px;
+    }
+
+    .search-bar-container:hover {
+      border-color: #3b82f6;
+      box-shadow: 0 4px 20px rgba(59, 130, 246, 0.15);
+    }
+
+    .search-icon {
+      width: 20px;
+      height: 20px;
+      color: #000;
+      margin-right: 0.75rem;
+      flex-shrink: 0;
+    }
+
+    .search-input-wrapper {
+      display: flex;
+      align-items: center;
+      flex: 1;
+      font-weight: 600;
+      color: #374151;
+      overflow: hidden;
+    }
+
+    /* Typing Animation Styles */
+    #cursor {
+      animation: blink 1s infinite;
+      color: #3b82f6;
+      font-weight: 700;
+    }
+
+    @keyframes blink {
+      0%, 50% { opacity: 1; }
+      51%, 100% { opacity: 0; }
+    }
+
+    .hero-section {
+      padding: 0;
+      text-align: center;
+      margin: auto 0 0 0;
+      background: transparent;
+    }
+
+    .hero-section h1 {
+      font-size: clamp(2.5rem, 5vw, 4rem);
+      font-weight: bold;
+      line-height: 1.1;
+      margin: 0 0 1.5rem 0;
+      letter-spacing: -0.03em;
+      font-family: Arial, sans-serif !important;
+    }
+
+    .hero-subtitle {
+      font-size: 1.25rem;
+      color: #666;
+      margin: 0 0 1.5rem 0;
+      max-width: 600px;
+      margin-left: auto;
+      margin-right: auto;
+    }
+
+    .cta-buttons {
+      display: flex;
+      gap: 1rem;
+      justify-content: center;
+      margin: 3rem 0;
+    }
+
+    .primary-button,
+    .secondary-button {
+      font-size: 1rem;
+      font-weight: 600;
+      padding: 1rem 2rem;
+      border-radius: 50px;
+      border: none;
+      display: flex;
+      align-items: center;
+      gap: 0.5rem;
+      cursor: pointer;
+      text-decoration: none;
+      transition: all 0.2s ease;
+      min-width: 160px;
+      justify-content: center;
+    }
+
+    .primary-button {
+      background: #000;
+      color: white;
+    }
+
+    .primary-button:hover {
+      background: #333;
+      transform: translateY(-1px);
+    }
+
+    .secondary-button {
+      background: #f0f8ff;
+      color: #000;
+      border: 1px solid #e6f3ff;
+    }
+
+    .secondary-button:hover {
+      background: #e6f3ff;
+      transform: translateY(-1px);
+    }
+
+    .cta-button {
+      font-size: 1rem;
+      font-weight: 600;
+      padding: 1rem 2rem;
+      border-radius: 50px;
+      border: none;
+      display: inline-flex;
+      align-items: center;
+      gap: 0.5rem;
+      cursor: pointer;
+      text-decoration: none;
+      transition: all 0.2s ease;
+      justify-content: center;
+    }
+
+    .cta-button.primary {
+      background: #000;
+      color: white;
+    }
+
+    .cta-button.primary:hover {
+      background: #333;
+      transform: translateY(-1px);
+    }
+
+    .cta-button.secondary {
+      background: #f0f8ff;
+      color: #000;
+      border: 1px solid #e6f3ff;
+    }
+
+    .cta-button.secondary:hover {
+      background: #e6f3ff;
+      transform: translateY(-1px);
+    }
+
+    .button-icon {
+      font-size: 1.1rem;
+    }
+
+    .dashboard-grid {
+      padding: 4rem 0;
+    }
+
+    .bento-grid {
+      display: grid;
+      grid-template-columns: 1fr;
+      gap: 2rem;
+      margin: 2rem 0;
+    }
+
+    .bento-card {
+      background: #fff;
+      border: 1px solid #f0f0f0;
+      border-radius: 12px;
+      padding: 2rem;
+      transition: all 0.2s ease;
+    }
+
+    .bento-card:hover {
+      border-color: #e6f3ff;
+      transform: translateY(-2px);
+      box-shadow: 0 4px 20px rgba(230, 243, 255, 0.3);
+    }
+
+    .bento-card h3 {
+      font-size: 1.5rem;
+      font-weight: 700;
+      margin: 0 0 1rem 0;
+      color: #000;
+    }
+
+    .categories-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+      gap: 1rem;
+      margin-top: 1.5rem;
+    }
+
+    .category-item {
+      background: #f8f8f8;
+      border-radius: 8px;
+      padding: 1.5rem;
+      text-align: center;
+      transition: all 0.2s ease;
+      cursor: pointer;
+      border: 1px solid transparent;
+    }
+
+    .category-item:hover {
+      background: #f0f8ff;
+      border-color: #e6f3ff;
+      transform: translateY(-1px);
+    }
+
+    .category-icon {
+      width: 48px;
+      height: 48px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      background: #fff;
+      border-radius: 8px;
+      margin: 0 auto 1rem auto;
+      box-shadow: 0 2px 8px rgba(230, 243, 255, 0.3);
+    }
+
+    .category-name {
+      font-weight: 600;
+      color: #000;
+      font-size: 1rem;
+      margin-bottom: 0.25rem;
+    }
+
+    .category-desc {
+      font-size: 0.875rem;
+      color: #666;
+    }
+
+    .contact-info {
+      display: flex;
+      flex-direction: column;
+      gap: 1rem;
+    }
+
+    .contact-item {
+      display: flex;
+      align-items: center;
+      gap: 1rem;
+      padding: 1rem;
+      background: #f8f8f8;
+      border-radius: 8px;
+      transition: background 0.2s ease;
+    }
+
+    .contact-item:hover {
+      background: #f0f8ff;
+    }
+
+    .contact-icon {
+      font-size: 1.25rem;
+      width: 24px;
+      text-align: center;
+    }
+
+    .contact-content h4 {
+      margin: 0 0 0.25rem 0;
+      font-size: 0.875rem;
+      font-weight: 600;
+      color: #666;
+    }
+
+    .contact-content a {
+      color: #000;
+      text-decoration: none;
+      font-weight: 500;
+    }
+
+    .contact-content a:hover {
+      text-decoration: underline;
+    }
+
+    .highlights-list {
+      display: flex;
+      flex-direction: column;
+      gap: 1rem;
+    }
+
+    .highlight-item {
+      display: flex;
+      align-items: flex-start;
+      gap: 1rem;
+      padding: 1rem;
+      background: #f8f8f8;
+      border-radius: 8px;
+      transition: background 0.2s ease;
+    }
+
+    .highlight-item:hover {
+      background: #f0f8ff;
+    }
+
+    .highlight-icon {
+      font-size: 1.25rem;
+      width: 24px;
+      text-align: center;
+      flex-shrink: 0;
+      margin-top: 0.125rem;
+    }
+
+    .highlight-content h4 {
+      margin: 0 0 0.5rem 0;
+      font-size: 1rem;
+      font-weight: 600;
+      color: #000;
+    }
+
+    .highlight-content p {
+      margin: 0;
+      font-size: 0.875rem;
+      color: #666;
+      line-height: 1.5;
+    }
+
+
+
+    .laptop-highlights-container {
+      display: flex;
+      align-items: center;
+      gap: 3rem;
+      position: relative;
+    }
+
+    .laptop-emoji-container {
+      flex-shrink: 0;
+      position: relative;
+    }
+
+    .laptop-emoji {
+      font-size: 10rem;
+      color: #666;
+      animation: laptop-pulse 3s ease-in-out infinite;
+    }
+
+    @keyframes laptop-pulse {
+      0%, 100% {
+        transform: scale(1);
+      }
+      50% {
+        transform: scale(1.05);
+      }
+    }
+
+    .floating-highlights {
+      display: flex;
+      flex-direction: column;
+      gap: 1.5rem;
+      flex: 1;
+      align-items: flex-end;
+      text-align: right;
+    }
+
+    .floating-highlight {
+      padding: 0;
+      background: transparent;
+      border: none;
+      box-shadow: none;
+      transition: none;
+      animation: none;
+      opacity: 1;
+      transform: none;
+    }
+
+    .floating-highlight:hover {
+      transform: none;
+      box-shadow: none;
+      border-color: transparent;
+    }
+
+    .floating-highlight .highlight-content h4 {
+      margin: 0 0 0.75rem 0;
+      font-size: 1.25rem;
+      font-weight: 600;
+      color: #000;
+      font-family: 'Inter', -apple-system, BlinkMacSystemFont, sans-serif;
+    }
+
+    .floating-highlight .highlight-content p {
+      margin: 0;
+      font-size: 1rem;
+      color: #666;
+      line-height: 1.6;
+      font-family: 'Inter', -apple-system, BlinkMacSystemFont, sans-serif;
+    }
+
+    .why-ctrl-cta {
+      margin-top: 2rem;
+      text-align: right;
+    }
+
+    /* Coffee & Connections Section */
+    .coffee-connections-container {
+      display: flex;
+      align-items: center;
+      gap: 4rem;
+      position: relative;
+    }
+
+    .coffee-connections-content {
+      flex: 1;
+    }
+
+    .coffee-connections-content h2 {
+      font-family: Arial, sans-serif !important;
+      font-weight: bold !important;
+      letter-spacing: -0.02em;
+    }
+
+    .coffee-connections-content p {
+      font-family: 'Inter', -apple-system, BlinkMacSystemFont, sans-serif;
+    }
+
+    .coffee-cta-button {
+      display: inline-block;
+      background: #000;
+      color: white;
+      padding: 1rem 2rem;
+      border-radius: 50px;
+      text-decoration: none;
+      font-weight: 600;
+      font-family: 'Inter', -apple-system, BlinkMacSystemFont, sans-serif;
+      transition: all 0.2s ease;
+    }
+
+    .coffee-cta-button:hover {
+      background: #333;
+      transform: translateY(-1px);
+    }
+
+    .discord-button:hover {
+      background: #333;
+      transform: translateY(-1px);
+      text-decoration: none;
+      color: white;
+    }
+
+    .coffee-connections-images {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      flex-shrink: 0;
+    }
+
+    .coffee-cup {
+      animation: coffee-pulse 2.5s ease-in-out infinite;
+    }
+
+    .coffee-cup img {
+      width: 180px;
+      height: auto;
+    }
+
+    @keyframes coffee-pulse {
+      0%, 100% {
+        transform: scale(1);
+      }
+      50% {
+        transform: scale(1.15);
+      }
+    }
+
+    @keyframes wand-pulse {
+      0%, 100% {
+        transform: scale(1);
+      }
+      50% {
+        transform: scale(1.1);
+      }
+    }
+
+    @keyframes venture-pulse {
+      0%, 100% {
+        transform: scale(1);
+      }
+      50% {
+        transform: scale(1.05);
+      }
+    }
+
+    /* Quad Bento Grid Styles */
+    .outcomes-quad-grid {
+      display: grid;
+      grid-template-columns: repeat(2, 1fr);
+      gap: 1.5rem;
+    }
+
+    .outcome-card {
+      transition: all 0.2s ease;
+      cursor: pointer;
+    }
+
+    .outcome-card:hover {
+      transform: translateY(-2px);
+      box-shadow: 0 4px 20px rgba(0, 0, 0, 0.1);
+    }
+
+    .outcome-card h3 {
+      transition: color 0.2s ease;
+    }
+
+    .outcome-card:hover h3 {
+      color: #3b82f6;
+    }
+
+    /* Responsive design for smaller screens */
+    @media (max-width: 768px) {
+      .laptop-highlights-container {
+        flex-direction: column;
+        gap: 3rem;
+        text-align: center;
+      }
+      
+      .laptop-emoji {
+        font-size: 8rem;
+      }
+      
+      .floating-highlights {
+        gap: 2rem;
+      }
+
+      .coffee-connections-container {
+        flex-direction: column;
+        gap: 2rem;
+        text-align: center;
+      }
+
+      .coffee-cup img {
+        width: 120px;
+      }
+
+      /* Fix free advertising section mobile layout */
+      .free-advertising-section {
+        flex-direction: column !important;
+        text-align: center !important;
+        gap: 1.5rem !important;
+      }
+
+      .free-advertising-section img {
+        width: 150px !important;
+        height: auto !important;
+        margin: 0 auto !important;
+      }
+
+      .discord-section {
+        flex-direction: column !important;
+        text-align: center !important;
+        gap: 1.5rem !important;
+        padding-top: 1.5rem !important;
+        margin-top: 1.5rem !important;
+      }
+
+      .discord-section > div:first-child {
+        width: 100% !important;
+        flex: none !important;
+      }
+
+      .discord-section > div:first-child h2 {
+        font-size: 1.5rem !important;
+        margin-bottom: 1rem !important;
+      }
+
+      .discord-section > div:first-child p {
+        font-size: 0.9rem !important;
+        margin-bottom: 1.25rem !important;
+        line-height: 1.5 !important;
+      }
+
+      .discord-section > div:last-child {
+        width: 100% !important;
+        display: flex !important;
+        justify-content: center !important;
+        flex-shrink: 1 !important;
+      }
+
+      .discord-section img {
+        width: 150px !important;
+        max-width: 100% !important;
+        height: auto !important;
+        margin: 0 auto !important;
+      }
+
+      .discord-section .discord-button {
+        padding: 0.875rem 1.5rem !important;
+        font-size: 0.9rem !important;
+        width: 100% !important;
+        justify-content: center !important;
+      }
+
+      .discord-section .discord-button svg {
+        width: 18px !important;
+        height: 18px !important;
+      }
+
+      .founder-card .bento-card {
+        flex-direction: column;
+        text-align: center;
+        gap: 1.5rem;
+      }
+
+      .founder-card .bento-card > div {
+        flex-direction: column;
+        text-align: center;
+      }
+
+      .venture-support-card > div {
+        flex-direction: column;
+        text-align: center;
+        gap: 2rem;
+      }
+
+      .outcomes-quad-grid {
+        grid-template-columns: 1fr;
+        gap: 1rem;
+      }
+
+      .outcome-card {
+        padding: 1.5rem;
+      }
+
+      .outcome-card > div:first-child {
+        font-size: 2.5rem;
+      }
+
+      /* Fix metrics bento overflow on mobile */
+      .dashboard-grid .content-wrapper {
+        max-width: 100% !important;
+        padding: 0 1rem !important;
+      }
+
+      .dashboard-grid .bento-card {
+        margin-left: 0 !important;
+        margin-right: 0 !important;
+        padding: 1.5rem !important;
+        overflow-x: hidden !important;
+      }
+
+      /* Ensure metrics don't overflow */
+      .dashboard-grid .bento-card > div {
+        display: flex !important;
+        flex-direction: column !important;
+        gap: 1rem !important;
+        text-align: center !important;
+      }
+
+      .dashboard-grid .bento-card > div > div {
+        flex: none !important;
+        width: 100% !important;
+        margin-bottom: 1rem !important;
+      }
+    }
+
+    .steps-list {
+      display: flex;
+      flex-direction: column;
+      gap: 1rem;
+    }
+
+    .step-item {
+      display: flex;
+      align-items: center;
+      gap: 1rem;
+      padding: 1rem;
+      background: #f8f8f8;
+      border-radius: 8px;
+      transition: background 0.2s ease;
+    }
+
+    .step-item:hover {
+      background: #f0f8ff;
+    }
+
+    .step-number {
+      background: #000;
+      color: white;
+      width: 24px;
+      height: 24px;
+      border-radius: 50%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 0.875rem;
+      font-weight: 600;
+      flex-shrink: 0;
+    }
+
+    .step-item p {
+      margin: 0;
+      font-weight: 500;
+      color: #000;
+    }
+
+    .highlight-step {
+      background: #f0f8ff;
+      border: 1px solid #e6f3ff;
+    }
+
+    .highlight-step:hover {
+      background: #e6f3ff;
+    }
+
+    .about-section {
+      padding: 4rem 0;
+      border-top: 1px solid #f0f0f0;
+    }
+
+    /* Bobigos Dropdown Styles */
+    .bobigos-dropdown-toggle:hover {
+      background: #f0f8ff !important;
+      border-color: #e6f3ff !important;
+    }
+
+    .bobigos-dropdown-content {
+      animation: slideDown 0.3s ease-out;
+    }
+
+    @keyframes slideDown {
+      from {
+        opacity: 0;
+        transform: translateY(-10px);
+      }
+      to {
+        opacity: 1;
+        transform: translateY(0);
+      }
+    }
+
+    /* About Button Styles (matching network page connect buttons) */
+    .about-button:hover,
+    .tutorial-button:hover {
+      background: #e9ecef !important;
+      border-color: #dee2e6 !important;
+      transform: translateY(-1px) !important;
+      text-decoration: none !important;
+      color: #000 !important;
+      box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1) !important;
+    }
+
+    .tutorial-button {
+      font-family: 'Inter', -apple-system, BlinkMacSystemFont, sans-serif;
+    }
+
+    /* Light Blue Gradient Glossy Button */
+    .save-qrs-button {
+      font-size: 1rem;
+      font-weight: 600;
+      padding: 0.875rem 1.75rem;
+      border-radius: 12px;
+      border: 1px solid rgba(59, 130, 246, 0.4);
+      display: inline-flex;
+      align-items: center;
+      gap: 0.5rem;
+      cursor: pointer;
+      text-decoration: none;
+      transition: all 0.3s ease;
+      justify-content: center;
+      position: relative;
+      overflow: hidden;
+      background: linear-gradient(180deg, 
+        rgba(191, 219, 254, 0.9) 0%, 
+        rgba(219, 234, 254, 0.95) 30%,
+        rgba(239, 246, 255, 0.98) 50%,
+        rgba(219, 234, 254, 0.95) 70%,
+        rgba(191, 219, 254, 0.9) 100%);
+      color: #1e40af;
+      box-shadow: 0 4px 20px rgba(59, 130, 246, 0.3), 
+                  0 0 0 1px rgba(59, 130, 246, 0.2) inset;
+      font-family: 'Inter', -apple-system, BlinkMacSystemFont, sans-serif;
+    }
+
+    .save-qrs-button::before {
+      content: '';
+      position: absolute;
+      top: 0;
+      left: 0;
+      right: 0;
+      height: 50%;
+      background: linear-gradient(180deg, 
+        rgba(255, 255, 255, 0.6) 0%, 
+        rgba(255, 255, 255, 0.3) 50%,
+        transparent 100%);
+      border-radius: 12px 12px 0 0;
+      pointer-events: none;
+    }
+
+    .save-qrs-button:hover {
+      transform: translateY(-2px);
+      box-shadow: 0 6px 25px rgba(59, 130, 246, 0.4), 
+                  0 0 0 1px rgba(59, 130, 246, 0.3) inset;
+      border-color: rgba(59, 130, 246, 0.5);
+    }
+
+    .save-qrs-button:active {
+      transform: translateY(0);
+      box-shadow: 0 2px 15px rgba(59, 130, 246, 0.3), 
+                  0 0 0 1px rgba(59, 130, 246, 0.2) inset;
+    }
+
+    /* Mission Bento Cards */
+    .mission-bentos-section {
+      padding: 3rem 0 0 0;
+      width: 100%;
+      margin: 0;
+    }
+
+    .mission-bentos-grid {
+      display: grid;
+      grid-template-columns: repeat(2, 1fr);
+      gap: 2rem;
+      max-width: 1200px;
+      margin: 0 auto;
+      padding: 0 2rem;
+    }
+
+    .mission-bento-card {
+      background: #ffffff;
+      border: 1px solid #e5e5e5;
+      border-radius: 20px;
+      padding: 2.5rem;
+      transition: all 0.3s ease;
+      box-shadow: 0 2px 8px rgba(0, 0, 0, 0.04);
+      position: relative;
+      overflow: hidden;
+    }
+
+    .mission-bento-card:hover {
+      transform: translateY(-4px);
+      box-shadow: 0 8px 24px rgba(0, 0, 0, 0.08);
+      border-color: #d1d5db;
+    }
+
+    .mission-bento-icon-wrapper {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      margin-bottom: 2rem;
+      position: relative;
+    }
+
+    .mission-bento-icon-circle {
+      width: 120px;
+      height: 120px;
+      border-radius: 50%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      position: relative;
+      overflow: hidden;
+      background: linear-gradient(135deg, 
+        rgba(196, 181, 253, 0.9) 0%, 
+        rgba(221, 214, 254, 0.95) 30%,
+        rgba(237, 233, 254, 0.98) 50%,
+        rgba(221, 214, 254, 0.95) 70%,
+        rgba(196, 181, 253, 0.9) 100%);
+      box-shadow: 0 4px 20px rgba(147, 51, 234, 0.3), 
+                  0 0 0 1px rgba(147, 51, 234, 0.2) inset;
+    }
+
+    .mission-bento-icon-circle::before {
+      content: '';
+      position: absolute;
+      top: 0;
+      left: 0;
+      right: 0;
+      height: 50%;
+      background: linear-gradient(180deg, 
+        rgba(255, 255, 255, 0.6) 0%, 
+        rgba(255, 255, 255, 0.3) 50%,
+        transparent 100%);
+      border-radius: 50% 50% 0 0;
+      pointer-events: none;
+    }
+
+    .mission-bento-icon-circle svg {
+      position: relative;
+      z-index: 1;
+      color: #6b21a8;
+    }
+
+    .mission-bento-content {
+      text-align: center;
+    }
+
+    .mission-bento-label {
+      font-size: 0.75rem;
+      font-weight: 600;
+      color: #6b7280;
+      text-transform: uppercase;
+      letter-spacing: 0.05em;
+      margin-bottom: 0.75rem;
+      font-family: 'Inter', -apple-system, BlinkMacSystemFont, sans-serif;
+    }
+
+    .mission-bento-title {
+      font-size: 1.5rem;
+      font-weight: bold;
+      color: #1a1a1a;
+      margin: 0 0 1rem 0;
+      font-family: Arial, sans-serif;
+      letter-spacing: -0.02em;
+    }
+
+    .mission-bento-description {
+      font-size: 0.95rem;
+      color: #4b5563;
+      line-height: 1.6;
+      margin: 0;
+      font-family: 'Inter', -apple-system, BlinkMacSystemFont, sans-serif;
+    }
+
+    @media (max-width: 768px) {
+      .mission-bentos-grid {
+        grid-template-columns: 1fr;
+        gap: 1.5rem;
+      }
+
+      .mission-bento-card {
+        padding: 2rem;
+      }
+
+      .mission-bento-icon-circle {
+        width: 100px;
+        height: 100px;
+      }
+
+      .mission-bento-icon-circle svg {
+        width: 40px;
+        height: 40px;
+      }
+
+      .mission-bento-title {
+        font-size: 1.25rem;
+      }
+    }
+
+    /* Secondary Hero Section */
+    .secondary-hero-section {
+      padding: 6rem 2rem;
+      text-align: center;
+      background: transparent;
+      width: 100%;
+      max-width: 1200px;
+      margin: 0 auto;
+    }
+
+    .secondary-hero-content {
+      max-width: 800px;
+      margin: 0 auto;
+    }
+
+    .secondary-hero-title {
+      font-size: clamp(2rem, 4vw, 3rem);
+      font-weight: bold;
+      color: #000;
+      margin: 0 0 1.5rem 0;
+      font-family: Arial, sans-serif;
+      letter-spacing: -0.02em;
+    }
+
+    .secondary-hero-description {
+      font-size: 1.125rem;
+      color: #4b5563;
+      line-height: 1.6;
+      margin: 0 0 2.5rem 0;
+      font-family: 'Inter', -apple-system, BlinkMacSystemFont, sans-serif;
+    }
+
+    .secondary-hero-buttons {
+      display: flex;
+      gap: 1rem;
+      justify-content: center;
+      align-items: center;
+      flex-wrap: wrap;
+    }
+
+    @media (max-width: 768px) {
+      .secondary-hero-section {
+        padding: 4rem 1.5rem;
+      }
+
+      .secondary-hero-buttons {
+        flex-direction: column;
+        width: 100%;
+      }
+
+      .secondary-hero-buttons .start-imagining-button,
+      .secondary-hero-buttons .save-qrs-button {
+        width: 100%;
+        max-width: 300px;
+      }
+    }
+
+    .main-footer {
+      background: #f8f8f8;
+      padding: 2rem 0;
+      text-align: center;
+      border-top: 1px solid #f0f0f0;
+    }
+
+    .footer-content {
+      max-width: 1200px;
+      margin: 0 auto;
+      padding: 0 2rem;
+    }
+
+    .footer-content p {
+      color: #666;
+      margin: 0;
+    }
+
+    @media (max-width: 768px) {
+      .mobile-menu-toggle {
+        display: flex;
+      }
+
+      .main-nav {
+        display: none;
+      }
+
+      .main-nav a,
+      .main-nav button,
+      .main-nav .user-menu {
+        width: 100%;
+        max-width: 300px;
+        padding: 1.25rem 0;
+        border-bottom: 1px solid #e5e5e5;
+        color: #000;
+        text-decoration: none;
+        font-weight: 500;
+        background: transparent;
+        border-left: none;
+        border-right: none;
+        border-top: none;
+        text-align: center;
+        font-size: 1.25rem;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+      }
+
+      .main-nav a:first-child {
+        border-top: 1px solid #e5e5e5;
+      }
+
+      .main-nav a:last-child,
+      .main-nav .social-nav-link:last-of-type {
+        border-bottom: 1px solid #e5e5e5;
+      }
+
+      .main-nav a:hover,
+      .main-nav a.active {
+        color: #000;
+        font-weight: 500;
+        background: transparent;
+        transition: none;
+      }
+
+      .join-highlight {
+        background: transparent !important;
+        box-shadow: none !important;
+        padding: 1.25rem 0 !important;
+        border-radius: 0 !important;
+        animation: none !important;
+        transform: none !important;
+        transition: none !important;
+      }
+
+      .join-highlight::before {
+        display: none !important;
+        content: none !important;
+      }
+
+      .join-highlight:hover {
+        background: transparent !important;
+        box-shadow: none !important;
+        transform: none !important;
+        scale: 1 !important;
+      }
+
+      .main-nav .join-highlight,
+      nav .join-highlight,
+      header .join-highlight {
+        background: transparent !important;
+        box-shadow: none !important;
+        animation: none !important;
+      }
+
+      .main-nav .join-highlight:hover,
+      nav .join-highlight:hover,
+      header .join-highlight:hover {
+        background: transparent !important;
+        box-shadow: none !important;
+        transform: none !important;
+        scale: 1 !important;
+      }
+
+      .social-nav-link {
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        gap: 0.5rem;
+      }
+
+      .auth-button {
+        border-bottom: 1px solid #e5e5e5 !important;
+        font-size: 1.25rem !important;
+      }
+
+      .user-menu {
+        border-bottom: 1px solid #e5e5e5 !important;
+        flex-direction: column;
+        align-items: center;
+      }
+
+      .user-menu-toggle {
+        width: 100%;
+        padding: 1.25rem 0 !important;
+        font-size: 1.25rem !important;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        gap: 0.5rem;
+        border: none !important;
+        background: transparent !important;
+        color: #000 !important;
+        font-weight: 500 !important;
+      }
+
+      .user-dropdown {
+        width: 100%;
+        max-width: 300px;
+        display: flex;
+        flex-direction: column;
+        margin-top: 0.5rem;
+      }
+
+      .user-dropdown-item {
+        padding: 1rem 0 !important;
+        border-bottom: 1px solid #e5e5e5 !important;
+        font-size: 1.1rem !important;
+        text-align: center !important;
+      }
+
+      .user-dropdown-item:last-child {
+        border-bottom: 1px solid #e5e5e5 !important;
+      }
+
+      .header-container {
+        padding: 0 1rem;
+      }
+
+      .dashboard-container {
+        padding: 0 1rem;
+        min-height: 80vh;
+      }
+
+      .hero-section {
+        padding: 2rem 0;
+      }
+
+      .cta-buttons {
+        flex-direction: column;
+        align-items: center;
+      }
+
+      .primary-button,
+      .secondary-button {
+        width: 100%;
+        max-width: 300px;
+      }
+
+      /* Hero section button container responsive */
+      .hero-section div[style*="display: flex"] {
+        flex-direction: column !important;
+        gap: 1rem !important;
+      }
+
+      .hero-section .start-imagining-button,
+      .hero-section .cta-button.secondary,
+      .hero-section .about-button,
+      .hero-section .tutorial-button,
+      .hero-section .save-qrs-button {
+        width: 100% !important;
+        max-width: 300px !important;
+      }
+
+      .categories-grid {
+        grid-template-columns: repeat(2, 1fr);
+      }
+
+      .bento-card {
+        padding: 1.5rem;
+      }
+    }
+
+    @media (max-width: 480px) {
+      .categories-grid {
+        grid-template-columns: 1fr;
+      }
+
+      .main-nav {
+        gap: 1rem;
+      }
+    }
+
+    /* Feed-like Bento Section Styles */
+    .feed-bento-container {
+      width: 100%;
+    }
+
+    /* Landscape Carousel (Full Width) */
+    .feed-carousel-landscape {
+      position: relative;
+      width: 100%;
+      aspect-ratio: 16/9;
+      border-radius: 20px;
+      overflow: hidden;
+      background: #f8f8f8;
+      box-shadow: 0 4px 24px rgba(0, 0, 0, 0.08);
+      margin-bottom: 2rem;
+    }
+
+    .feed-image-carousel {
+      position: relative;
+      width: 100%;
+      border-radius: 20px;
+      overflow: hidden;
+      background: #f8f8f8;
+      box-shadow: 0 4px 24px rgba(0, 0, 0, 0.08);
+    }
+
+    /* Squad Grid for Bentos */
+    .feed-bentos-squad-grid {
+      display: grid;
+      grid-template-columns: repeat(2, 1fr);
+      gap: 1.5rem;
+    }
+
+    .carousel-container {
+      position: relative;
+      width: 100%;
+      height: 100%;
+    }
+
+    .carousel-image {
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      opacity: 0;
+      transition: opacity 1.5s ease-in-out;
+    }
+
+    .carousel-image.active {
+      opacity: 1;
+      z-index: 2;
+    }
+
+    .carousel-image img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+    }
+
+    .carousel-image .ig-feed-image {
+      object-position: top;
+    }
+
+    .carousel-indicators {
+      position: absolute;
+      bottom: 1.5rem;
+      left: 50%;
+      transform: translateX(-50%);
+      display: flex;
+      gap: 0.75rem;
+      z-index: 10;
+    }
+
+    .carousel-indicators .indicator {
+      width: 10px;
+      height: 10px;
+      border-radius: 50%;
+      background: rgba(255, 255, 255, 0.5);
+      cursor: pointer;
+      transition: all 0.3s ease;
+      border: 2px solid rgba(255, 255, 255, 0.8);
+    }
+
+    .carousel-indicators .indicator.active {
+      background: #fff;
+      transform: scale(1.2);
+      box-shadow: 0 0 8px rgba(255, 255, 255, 0.8);
+    }
+
+
+    .feed-bento-card {
+      background: #fff;
+      border: 1px solid #f0f0f0;
+      border-radius: 16px;
+      padding: 2rem;
+      transition: all 0.3s ease;
+      box-shadow: 0 2px 12px rgba(0, 0, 0, 0.04);
+    }
+
+    .feed-bento-card:hover {
+      transform: translateY(-4px);
+      box-shadow: 0 8px 24px rgba(0, 0, 0, 0.12);
+      border-color: #e6f3ff;
+    }
+
+    .feed-bento-icon {
+      font-size: 2.5rem;
+      margin-bottom: 1rem;
+      display: flex;
+      align-items: center;
+      justify-content: flex-start;
+    }
+
+    .feed-bento-icon svg {
+      color: #000;
+    }
+
+    /* Bento Image Styles */
+    .feed-bento-image-wrapper {
+      width: 100%;
+      height: 220px;
+      border-radius: 12px;
+      overflow: hidden;
+      margin-bottom: 1rem;
+      background: #f8f8f8;
+    }
+
+    .feed-bento-image {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      transition: transform 0.3s ease;
+    }
+
+    .feed-bento-card:hover .feed-bento-image {
+      transform: scale(1.05);
+    }
+
+    /* Intern Bento Styles */
+    .feed-intern-card {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      text-align: center;
+    }
+
+    .feed-intern-card h3,
+    .feed-intern-card p {
+      text-align: center;
+      width: 100%;
+    }
+
+    .feed-intern-qr-wrapper {
+      display: inline-block;
+      margin: 0 auto;
+      cursor: pointer;
+      transition: transform 0.3s ease;
+    }
+
+    .feed-intern-qr-wrapper:hover {
+      transform: scale(1.05);
+    }
+
+    .feed-intern-qr {
+      width: 200px;
+      height: 200px;
+      object-fit: contain;
+      border-radius: 12px;
+      box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+    }
+
+    /* Feature Buttons Section */
+    .feature-buttons-container {
+      margin: -3.5rem 0 1.5rem 0;
+      padding: 0 2rem;
+    }
+
+    .feature-button-non-clickable {
+      background: linear-gradient(135deg, #79b7ff, #a8d8ff);
+      color: white;
+      border: none;
+      border-radius: 8px;
+      padding: 0.6rem 1.5rem;
+      font-size: 0.85rem;
+      font-weight: 600;
+      cursor: default;
+      text-align: center;
+      text-decoration: none;
+      display: inline-block;
+      font-family: 'Inter', -apple-system, BlinkMacSystemFont, sans-serif;
+      white-space: nowrap;
+    }
+
+    /* Infinite Carousel Styles */
+    .feature-buttons-carousel-wrapper {
+      overflow: hidden;
+      width: 100%;
+      position: relative;
+      margin: 2rem 0 2.5rem 0;
+    }
+
+    .feature-buttons-carousel {
+      display: flex;
+      gap: 1rem;
+      width: fit-content;
+      animation: slideInfinite 30s linear infinite;
+    }
+
+    .feature-buttons-carousel:hover {
+      animation-play-state: paused;
+    }
+
+    .feature-buttons-carousel-track {
+      display: flex;
+      gap: 1rem;
+      flex-shrink: 0;
+    }
+
+    @keyframes slideInfinite {
+      0% {
+        transform: translateX(0);
+      }
+      100% {
+        transform: translateX(-50%);
+      }
+    }
+
+    /* Tutorial Modal */
+    .tutorial-modal {
+      display: none;
+      position: fixed;
+      z-index: 10000;
+      left: 0;
+      top: 0;
+      width: 100%;
+      height: 100%;
+      background-color: rgba(0, 0, 0, 0.8);
+      backdrop-filter: blur(4px);
+      animation: fadeIn 0.3s ease;
+    }
+
+    .tutorial-modal.active {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+    }
+
+    .tutorial-modal-content {
+      position: relative;
+      background-color: #000;
+      padding: 0;
+      width: 90%;
+      max-width: 900px;
+      border-radius: 12px;
+      overflow: hidden;
+      animation: slideUp 0.3s ease;
+    }
+
+    .tutorial-modal-close {
+      position: absolute;
+      top: 10px;
+      right: 10px;
+      color: #fff;
+      font-size: 28px;
+      font-weight: bold;
+      background: rgba(0, 0, 0, 0.5);
+      border: none;
+      width: 40px;
+      height: 40px;
+      border-radius: 50%;
+      cursor: pointer;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      z-index: 10001;
+      transition: all 0.2s ease;
+    }
+
+    .tutorial-modal-close:hover {
+      background: rgba(0, 0, 0, 0.8);
+      transform: scale(1.1);
+    }
+
+    .tutorial-modal-close:active {
+      transform: scale(0.95);
+    }
+
+    .tutorial-modal-video-wrapper {
+      position: relative;
+      width: 100%;
+      padding-bottom: 56.25%; /* 16:9 aspect ratio */
+      height: 0;
+      overflow: hidden;
+    }
+
+    .tutorial-modal iframe {
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      border: none;
+    }
+
+    @keyframes fadeIn {
+      from { opacity: 0; }
+      to { opacity: 1; }
+    }
+
+    @keyframes slideUp {
+      from {
+        transform: translateY(20px);
+        opacity: 0;
+      }
+      to {
+        transform: translateY(0);
+        opacity: 1;
+      }
+    }
+
+    @media (max-width: 768px) {
+      .tutorial-modal-content {
+        width: 95%;
+      }
+    }
+
+    .feed-bento-button {
+      display: inline-flex;
+      align-items: center;
+      gap: 0.5rem;
+      background: #000;
+      color: white;
+      padding: 0.875rem 1.75rem;
+      border-radius: 50px;
+      text-decoration: none;
+      font-weight: 600;
+      font-size: 0.95rem;
+      font-family: 'Inter', -apple-system, BlinkMacSystemFont, sans-serif;
+      transition: all 0.2s ease;
+    }
+
+    .feed-bento-button:hover {
+      background: #333;
+      transform: translateX(4px);
+    }
+
+    /* Hero Boba Graphic Styles */
+    .hero-boba-graphic {
+      display: block;
+      animation: boba-pulsate 2s ease-in-out infinite;
+    }
+
+    @keyframes boba-pulsate {
+      0%, 100% {
+        transform: scale(1);
+      }
+      50% {
+        transform: scale(1.15);
+      }
+    }
+
+    /* Hero Star Icon Styles */
+    .hero-star-icon {
+      display: block;
+      animation: star-pulsate 2s ease-in-out infinite;
+    }
+
+    @keyframes star-pulsate {
+      0%, 100% {
+        transform: scale(1);
+        opacity: 1;
+      }
+      50% {
+        transform: scale(1.15);
+        opacity: 0.9;
+      }
+    }
+
+    @media (min-width: 769px) {
+      .hero-boba-graphic {
+        display: block;
+      }
+    }
+
+    /* Responsive adjustments */
+    @media (max-width: 768px) {
+      .hero-boba-graphic {
+        display: none;
+      }
+
+      .hero-star-icon {
+        width: 80px !important;
+        height: auto;
+      }
+
+      .feed-bentos-squad-grid {
+        grid-template-columns: 1fr;
+        gap: 1.5rem;
+      }
+
+      .feed-bento-card {
+        padding: 1.5rem;
+      }
+
+      .feed-carousel-landscape {
+        aspect-ratio: 16/9;
+      }
+
+      .feed-bento-icon {
+        font-size: 2rem;
+      }
+
+      .feed-bento-image-wrapper {
+        height: 180px;
+      }
+
+      .feed-intern-qr {
+        width: 180px;
+        height: 180px;
+      }
+
+      .feature-buttons-container {
+        padding: 0 1rem;
+        margin: 1rem 0 1.5rem 0;
+      }
+
+      .feature-buttons-carousel-wrapper {
+        margin: 1.5rem 0 2rem 0;
+        padding: 0 1rem;
+      }
+
+      .feature-button-non-clickable {
+        font-size: 0.8rem;
+        padding: 0.5rem 1.25rem;
+      }
+    }
+
+  </style>
+</head>
+<body class="dashboard">
+  <header class="main-header">
+    <div class="header-container">
+      <a href="index.html" class="logo">
+        <img src="favicon.png" alt="QRtists" style="width: 32px; height: 32px; margin-right: 12px; vertical-align: middle;">
+        QRtists
+      </a>
+      
+      <!-- Mobile hamburger menu button -->
+      <button class="mobile-menu-toggle" aria-label="Toggle navigation menu">
+        <span></span>
+        <span></span>
+        <span></span>
+      </button>
+      
+      <nav class="main-nav">
+        <a href="index.html" class="active">Home</a>
+        <a href="network.html">QRs</a>
+        <a href="join-community.html" class="join-highlight">upload <span style="font-size: 0.9em; color: #000;">+</span></a>
+        
+        <!-- User Menu (shown when logged in) -->
+        <div class="user-menu" style="display: none;">
+          <button class="user-menu-toggle" onclick="toggleUserMenu()">
+            <div class="user-avatar"></div>
+            <span class="user-name"></span>
+          </button>
+          <div class="user-dropdown">
+            <a href="#" class="user-dropdown-item" onclick="showFavoritesModal(); return false;">My Favorites</a>
+            <a href="dashboard.html" class="user-dropdown-item">Dashboard</a>
+            <a href="#" class="user-dropdown-item" onclick="authManager.signOut(); return false;">Sign Out</a>
+          </div>
+        </div>
+        
+        <!-- Logout Button (shown when logged in) -->
+        <button class="logout-button" onclick="authManager.signOut()" style="display: none;">
+          <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" style="margin-right: 0.5rem;">
+            <path d="M9 21H5a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h4"></path>
+            <polyline points="16 17 21 12 16 7"></polyline>
+            <line x1="21" y1="12" x2="9" y2="12"></line>
+          </svg>
+          Log Out
+        </button>
+        
+        <a href="https://www.instagram.com/qrtistsonline" target="_blank" class="social-nav-link">
+          <svg class="nav-icon" viewBox="0 0 24 24" width="24" height="24" fill="none" xmlns="http://www.w3.org/2000/svg">
+            <rect x="2" y="2" width="20" height="20" rx="5" stroke="currentColor" stroke-width="2"/>
+            <circle cx="12" cy="12" r="5" stroke="currentColor" stroke-width="2"/>
+            <circle cx="17" cy="7" r="1" fill="currentColor"/>
+          </svg>
+        </a>
+      </nav>
+    </div>
+    
+    <!-- Mobile Navigation Menu -->
+    <div class="mobile-nav-overlay"></div>
+    <nav class="mobile-nav">
+      <a href="index.html" class="mobile-nav-item">
+        <svg class="nav-icon" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+          <path d="M3 9l9-7 9 7v11a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2z" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+          <polyline points="9 22 9 12 15 12 15 22" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+        </svg>
+        <span>Home</span>
+      </a>
+      <a href="network.html" class="mobile-nav-item">
+        <svg class="nav-icon" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+          <circle cx="12" cy="12" r="10" stroke="currentColor" stroke-width="2"/>
+          <line x1="2" y1="12" x2="22" y2="12" stroke="currentColor" stroke-width="2"/>
+          <line x1="12" y1="2" x2="12" y2="22" stroke="currentColor" stroke-width="2"/>
+        </svg>
+        <span>QRs</span>
+      </a>
+      <a href="join-community.html" class="mobile-nav-item">
+        <svg class="nav-icon" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+          <path d="M16 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+          <circle cx="8.5" cy="7" r="4" stroke="currentColor" stroke-width="2"/>
+          <line x1="20" y1="8" x2="20" y2="14" stroke="currentColor" stroke-width="2"/>
+          <line x1="23" y1="11" x2="17" y2="11" stroke="currentColor" stroke-width="2"/>
+        </svg>
+        <span>Join</span>
+      </a>
+      <a href="https://www.instagram.com/qrtistsonline" target="_blank" class="mobile-nav-item">
+        <svg class="nav-icon" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+          <rect x="2" y="2" width="20" height="20" rx="5" stroke="currentColor" stroke-width="2"/>
+          <circle cx="12" cy="12" r="5" stroke="currentColor" stroke-width="2"/>
+          <circle cx="17" cy="7" r="1" fill="currentColor"/>
+        </svg>
+        <span>Instagram</span>
+      </a>
+    </nav>
+  </header>
+
+  <main class="dashboard-container">
+    <section class="hero-section" style="background: transparent; display: flex; flex-direction: column; align-items: center; position: relative; margin-bottom: 0; padding-bottom: 0;">
+      <div class="content-wrapper" style="position: relative; z-index: 2; margin-bottom: 0; padding-bottom: 0; width: 100%; max-width: 1200px; margin: 0 auto; text-align: center;">
+        <div style="margin-bottom: 1.5rem;">
+          <div class="search-bar-container">
+            <svg class="search-icon" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+              <circle cx="11" cy="11" r="8" stroke="currentColor" stroke-width="2"/>
+              <path d="m21 21-4.35-4.35" stroke="currentColor" stroke-width="2" stroke-linecap="round"/>
+            </svg>
+            <div class="search-input-wrapper">
+              <span id="changing-text">find video colorings</span>
+              <span id="cursor">|</span>
+            </div>
+          </div>
+        </div>
+        <h1 style="font-size: clamp(2.5rem, 5vw, 3.5rem); font-weight: bold; line-height: 1.1; margin-bottom: 1rem; color: #000; font-family: Arial, sans-serif;">
+          find QR codes for<br><span>video colorings, transitions & effects</span>
+        </h1>
+        <p class="hero-subtitle" style="font-size: 1.25rem; color: #000; margin-bottom: 1.5rem; max-width: 600px; margin-left: auto; margin-right: auto;">
+          QRtists is a marketplace for video editors using Video Star, After Effects, and more. Discover, download, and share QR codes to elevate your edits.
+        </p>
+        <div style="text-align: center; display: flex; gap: 1rem; justify-content: center; align-items: center; margin-bottom: 0;">
+          <a href="network.html" class="start-imagining-button">browse QRs</a>
+          <a href="login.html" class="save-qrs-button">
+            <span>save QRs</span>
+          </a>
+        </div>
+      </div>
+    </section>
+
+    <!-- Mission Bento Cards Section -->
+    <section class="mission-bentos-section">
+      <div class="mission-bentos-grid">
+        <!-- Mission Bento 1 -->
+        <div class="mission-bento-card">
+          <div class="mission-bento-icon-wrapper">
+            <div class="mission-bento-icon-circle">
+              <svg width="48" height="48" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                <path d="M12 2L2 7L12 12L22 7L12 2Z" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+                <path d="M2 17L12 22L22 17" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+                <path d="M2 12L12 17L22 12" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+              </svg>
+            </div>
+          </div>
+          <div class="mission-bento-content">
+            <div class="mission-bento-label">MISSION 1</div>
+            <h3 class="mission-bento-title">Discover & Download</h3>
+            <p class="mission-bento-description">Explore thousands of QR codes for video colorings, transitions, and effects. Find the perfect assets to elevate your Video Star and After Effects projects.</p>
+          </div>
+        </div>
+
+        <!-- Mission Bento 2 -->
+        <div class="mission-bento-card">
+          <div class="mission-bento-icon-wrapper">
+            <div class="mission-bento-icon-circle">
+              <svg width="48" height="48" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                <path d="M17 21V19C17 17.9391 16.5786 16.9217 15.8284 16.1716C15.0783 15.4214 14.0609 15 13 15H5C3.93913 15 2.92172 15.4214 2.17157 16.1716C1.42143 16.9217 1 17.9391 1 19V21" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+                <circle cx="9" cy="7" r="4" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+                <path d="M23 21V19C22.9993 18.1137 22.7044 17.2528 22.1614 16.5523C21.6184 15.8519 20.8581 15.3516 20 15.13" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+                <path d="M16 3.13C16.8604 3.35031 17.623 3.85071 18.1676 4.55232C18.7122 5.25392 19.0078 6.11683 19.0078 7.005C19.0078 7.89318 18.7122 8.75608 18.1676 9.45769C17.623 10.1593 16.8604 10.6597 16 10.88" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+              </svg>
+            </div>
+          </div>
+          <div class="mission-bento-content">
+            <div class="mission-bento-label">MISSION 2</div>
+            <h3 class="mission-bento-title">Share & Connect</h3>
+            <p class="mission-bento-description">Join a community of video editors sharing their creative QR codes. Save your favorites and build your collection of premium video effects.</p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Secondary Hero Section -->
+    <section class="secondary-hero-section">
+      <div class="secondary-hero-content">
+        <h2 class="secondary-hero-title">Elevate Your Video Edits</h2>
+        <p class="secondary-hero-description">Join thousands of creators using QRtists to discover, share, and create stunning video effects. Start exploring our collection of premium QR codes today.</p>
+        <div class="secondary-hero-buttons">
+          <a href="network.html" class="start-imagining-button">Explore QRs</a>
+          <a href="login.html" class="save-qrs-button">Get Started</a>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <footer class="main-footer">
+    <div class="footer-content">
+      <p>capturing creativity</p>
+    </div>
+  </footer>
+
+  <!-- Auth Script -->
+  <script src="js/auth.js"></script>
+  
+  <script>
+    // Global function to show sign in modal
+    function showSignInModal() {
+      console.log('showSignInModal called');
+      
+      // Try to show modal immediately if authManager exists
+      if (window.authManager) {
+        console.log('authManager found, showing modal');
+        try {
+          window.authManager.showAuthModal('login');
+        } catch (error) {
+          console.error('Error showing modal:', error);
+          // Fallback: try to create and show modal manually
+          createModalFallback();
+        }
+      } else {
+        console.log('authManager not found, waiting...');
+        // Wait for authManager to be available
+        let attempts = 0;
+        const maxAttempts = 10;
+        const checkInterval = setInterval(() => {
+          attempts++;
+          if (window.authManager) {
+            console.log('authManager found after wait');
+            clearInterval(checkInterval);
+            try {
+              window.authManager.showAuthModal('login');
+            } catch (error) {
+              console.error('Error showing modal after wait:', error);
+              createModalFallback();
+            }
+          } else if (attempts >= maxAttempts) {
+            console.error('Auth manager not loaded after multiple attempts');
+            clearInterval(checkInterval);
+            createModalFallback();
+          }
+        }, 100);
+      }
+    }
+    
+    // Fallback function to create modal if authManager fails
+    function createModalFallback() {
+      console.log('Creating modal fallback');
+      let modal = document.getElementById('authModal');
+      if (!modal) {
+        // Create a simple modal
+        const modalHTML = `
+          <div id="authModal" class="auth-modal" style="display: flex;">
+            <div class="auth-modal-content">
+              <button class="auth-close-btn" onclick="document.getElementById('authModal').style.display='none'">&times;</button>
+              <div class="auth-header">
+                <div class="auth-header-icon">🎨</div>
+                <h2>Sign in</h2>
+                <p>Please refresh the page to load the full authentication system.</p>
+              </div>
+            </div>
+          </div>
+        `;
+        document.body.insertAdjacentHTML('beforeend', modalHTML);
+      } else {
+        modal.style.display = 'flex';
+      }
+    }
+    
+    // Toggle user menu
+    function toggleUserMenu() {
+      const dropdown = document.querySelector('.user-dropdown');
+      dropdown.classList.toggle('show');
+    }
+
+    // Toggle Bobigos dropdowns
+    function toggleBobigosDropdown(id) {
+      const content = document.getElementById(id);
+      const arrow = content.previousElementSibling.querySelector('.dropdown-arrow');
+      
+      if (content.style.display === 'none' || content.style.display === '') {
+        content.style.display = 'block';
+        arrow.textContent = '−';
+        arrow.style.transform = 'rotate(0deg)';
+      } else {
+        content.style.display = 'none';
+        arrow.textContent = '+';
+        arrow.style.transform = 'rotate(0deg)';
+      }
+    }
+
+    // Close user menu when clicking outside
+    document.addEventListener('click', (e) => {
+      const userMenu = document.querySelector('.user-menu');
+      const dropdown = document.querySelector('.user-dropdown');
+      
+      if (userMenu && !userMenu.contains(e.target)) {
+        dropdown.classList.remove('show');
+      }
+    });
+
+    document.addEventListener('DOMContentLoaded', () => {
+      // Mobile menu functionality
+      const mobileMenuToggle = document.querySelector('.mobile-menu-toggle');
+      const mobileNav = document.querySelector('.mobile-nav');
+      const mobileNavOverlay = document.querySelector('.mobile-nav-overlay');
+      
+      if (mobileMenuToggle && mobileNav) {
+        mobileMenuToggle.addEventListener('click', () => {
+          mobileMenuToggle.classList.toggle('active');
+          mobileNav.classList.toggle('active');
+          mobileNavOverlay.classList.toggle('active');
+          document.body.style.overflow = mobileNav.classList.contains('active') ? 'hidden' : '';
+        });
+        
+        // Close menu when clicking overlay
+        mobileNavOverlay.addEventListener('click', () => {
+          mobileMenuToggle.classList.remove('active');
+          mobileNav.classList.remove('active');
+          mobileNavOverlay.classList.remove('active');
+          document.body.style.overflow = '';
+        });
+        
+        // Close menu when clicking on a link
+        const mobileNavLinks = document.querySelectorAll('.mobile-nav-item');
+        mobileNavLinks.forEach(link => {
+          link.addEventListener('click', () => {
+            mobileMenuToggle.classList.remove('active');
+            mobileNav.classList.remove('active');
+            mobileNavOverlay.classList.remove('active');
+            document.body.style.overflow = '';
+          });
+        });
+        
+        // Close menu on window resize if screen becomes larger
+        window.addEventListener('resize', () => {
+          if (window.innerWidth > 768) {
+            mobileMenuToggle.classList.remove('active');
+            mobileNav.classList.remove('active');
+            mobileNavOverlay.classList.remove('active');
+            document.body.style.overflow = '';
+          }
+        });
+      }
+
+      const counters = document.querySelectorAll('.metric-value');
+      
+      const animateCounter = (counter, target) => {
+        let current = 0;
+        const duration = 2000; // 2 seconds
+        const step = (target / duration) * 16; // 16ms is roughly one frame at 60fps
+        
+        counter.classList.add('animate-count');
+        
+        const updateCounter = () => {
+          current += step;
+          if (current < target) {
+            counter.textContent = Math.round(current);
+            requestAnimationFrame(updateCounter);
+          } else {
+            counter.textContent = target;
+          }
+        };
+        
+        updateCounter();
+      };
+
+      const observerCallback = (entries) => {
+        entries.forEach(entry => {
+          if (entry.isIntersecting) {
+            const counter = entry.target;
+            const target = parseInt(counter.dataset.target);
+            animateCounter(counter, target);
+            observer.unobserve(counter);
+          }
+        });
+      };
+
+      const observer = new IntersectionObserver(observerCallback, {
+        threshold: 0.5
+      });
+
+      counters.forEach(counter => observer.observe(counter));
+
+      // Typing Animation
+      const changingText = document.getElementById('changing-text');
+      const phrases = [
+        'find video colorings',
+        'discover transitions',
+        'explore effects',
+        'video star QR codes',
+        'after effects presets',
+        'elevate your edits'
+      ];
+      
+      let currentPhraseIndex = 0;
+      let currentCharIndex = 0;
+      let isDeleting = false;
+      let typingSpeed = 100;
+
+      function typeText() {
+        const currentPhrase = phrases[currentPhraseIndex];
+        
+        if (isDeleting) {
+          // Backspace effect - completely clear the text
+          changingText.textContent = currentPhrase.substring(0, currentCharIndex - 1);
+          currentCharIndex--;
+          typingSpeed = 50;
+        } else {
+          // Type effect
+          changingText.textContent = currentPhrase.substring(0, currentCharIndex + 1);
+          currentCharIndex++;
+          typingSpeed = 100;
+        }
+
+        // Handle transitions between phrases
+        if (!isDeleting && currentCharIndex === currentPhrase.length) {
+          // Finished typing, wait then start deleting
+          typingSpeed = 1500; // Wait 1.5 seconds
+          isDeleting = true;
+        } else if (isDeleting && currentCharIndex === 0) {
+          // Finished deleting, move to next phrase
+          isDeleting = false;
+          currentPhraseIndex = (currentPhraseIndex + 1) % phrases.length;
+          typingSpeed = 300; // Wait before starting next phrase
+        }
+
+        setTimeout(typeText, typingSpeed);
+      }
+
+      // Start the typing animation
+      setTimeout(typeText, 1000);
+
+
+    });
+
+    // Tutorial Modal Functions
+    function openTutorialModal() {
+      const modal = document.getElementById('tutorialModal');
+      if (modal) {
+        modal.classList.add('active');
+        document.body.style.overflow = 'hidden';
+      }
+    }
+
+    function closeTutorialModal() {
+      const modal = document.getElementById('tutorialModal');
+      if (modal) {
+        modal.classList.remove('active');
+        document.body.style.overflow = '';
+      }
+    }
+
+    // Close modal when clicking outside
+    window.addEventListener('click', function(event) {
+      const modal = document.getElementById('tutorialModal');
+      if (event.target === modal) {
+        closeTutorialModal();
+      }
+    });
+
+    // Close modal with Escape key
+    document.addEventListener('keydown', function(event) {
+      if (event.key === 'Escape') {
+        closeTutorialModal();
+      }
+    });
+  </script>
+
+  <!-- Tutorial Modal -->
+  <div id="tutorialModal" class="tutorial-modal">
+    <div class="tutorial-modal-content">
+      <button class="tutorial-modal-close" onclick="closeTutorialModal()" aria-label="Close modal">&times;</button>
+      <div class="tutorial-modal-video-wrapper">
+        <iframe
+          src="https://www.youtube.com/embed/CFCKS0e-pOI?autoplay=0"
+          allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+          allowfullscreen>
+        </iframe>
+      </div>
+    </div>
+  </div>
+
+  <!-- Favorites Modal -->
+  <div id="favoritesModal" class="auth-modal" style="display: none;">
+    <div class="auth-modal-content" style="max-width: 800px;">
+      <button class="auth-close-btn" onclick="hideFavoritesModal()">&times;</button>
+      
+      <div class="auth-header">
+        <h2>My Favorites</h2>
+        <p>Your saved QR codes</p>
+      </div>
+
+      <div id="favoritesGrid" class="projects-grid" style="margin-top: 2rem;">
+        <p style="text-align: center; color: #666; padding: 2rem;">No favorites yet. Start saving QR codes to see them here!</p>
+      </div>
+    </div>
+  </div>
+
+  <script>
+    // Favorites Modal Functions
+    function showFavoritesModal() {
+      if (!authManager.currentUser) {
+        authManager.showAuthModal('login');
+        return;
+      }
+
+      const modal = document.getElementById('favoritesModal');
+      if (!modal) {
+        return;
+      }
+
+      modal.style.display = 'flex';
+      document.body.style.overflow = 'hidden';
+      loadFavoritesDisplay();
+    }
+
+    function hideFavoritesModal() {
+      const modal = document.getElementById('favoritesModal');
+      if (modal) {
+        modal.style.display = 'none';
+        document.body.style.overflow = '';
+      }
+    }
+
+    // Load favorites display
+    async function loadFavoritesDisplay() {
+      const favoritesGrid = document.getElementById('favoritesGrid');
+      if (!favoritesGrid) return;
+
+      const favorites = authManager.getFavorites();
+      
+      if (favorites.length === 0) {
+        favoritesGrid.innerHTML = '<p style="text-align: center; color: #666; padding: 2rem;">No favorites yet. Start saving QR codes to see them here!</p>';
+        return;
+      }
+
+      // Load favorite QR codes from projects
+      if (window.projectsPage && window.projectsPage.allProjects) {
+        const favoriteProjects = window.projectsPage.allProjects.filter(project => 
+          favorites.includes(project.id || project.title)
+        );
+
+        if (favoriteProjects.length === 0) {
+          favoritesGrid.innerHTML = '<p style="text-align: center; color: #666; padding: 2rem;">No favorites found.</p>';
+          return;
+        }
+
+        // Render favorite projects
+        favoritesGrid.innerHTML = '';
+        if (window.renderProjects) {
+          window.renderProjects(favoriteProjects, false);
+        }
+      }
+    }
+
+    // Close favorites modal when clicking outside
+    document.addEventListener('click', (e) => {
+      const modal = document.getElementById('favoritesModal');
+      if (e.target === modal) {
+        hideFavoritesModal();
+      }
+    });
+
+    // Close favorites modal with Escape key
+    document.addEventListener('keydown', (e) => {
+      if (e.key === 'Escape') {
+        hideFavoritesModal();
+      }
+    });
+  </script>
+</body>
+</html>
