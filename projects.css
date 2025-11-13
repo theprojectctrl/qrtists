@@ -1,0 +1,1402 @@
+/* Projects Page Styles */
+h1, h2, h3, h4, h5, h6 {
+    font-family: 'Lucida Console' !important;
+    font-weight: inherit;
+  }
+  
+  /* Additional header font rules for better coverage */
+  .hero-section h1,
+  .hero-section h2,
+  .hero-section h3,
+  .bento-card h3,
+  .feature-card h3,
+  .mission-card h3,
+  .founder-card h3,
+  .project-title,
+  .project-header h3,
+  .resource-content h4,
+  .story-content h4,
+  .help-content h4,
+  .metric-card h3,
+  .category-name,
+  .timeline-content h4,
+  .project-card h3,
+  .event-tile h3,
+  .promo-ig-card h3,
+  .promo-product-card h3 {
+    font-family: 'Lucida Console' !important;
+  }
+  
+  /* Comprehensive header font coverage - ensure ALL headers use Lucida Console */
+  * h1, * h2, * h3, * h4, * h5, * h6,
+  .page-content h1, .page-content h2, .page-content h3, .page-content h4, .page-content h5, .page-content h6,
+  .content h1, .content h2, .content h3, .content h4, .content h5, .content h6,
+  .main-content h1, .main-content h2, .main-content h3, .main-content h4, .main-content h5, .main-content h6,
+  .section h1, .section h2, .section h3, .section h4, .section h5, .section h6,
+  .card h1, .card h2, .card h3, .card h4, .card h5, .card h6,
+  .container h1, .container h2, .container h3, .container h4, .container h5, .container h6,
+  .wrapper h1, .wrapper h2, .wrapper h3, .wrapper h4, .wrapper h5, .wrapper h6 {
+    font-family: 'Lucida Console' !important;
+  }
+  
+  /* Override any potential conflicting font declarations */
+  h1, h2, h3, h4, h5, h6 {
+    font-family: 'Lucida Console' !important;
+  }
+  
+  body {
+    text-transform: lowercase !important;
+  }
+  
+  /* Ensure all text elements use lowercase */
+  body * {
+    text-transform: lowercase !important;
+  }
+  
+  /* Preserve original case for form elements and code */
+  input, textarea, button, code, pre, .code-block {
+    text-transform: none !important;
+  }
+  
+  /* Logo font - keep original sans-serif font */
+  .logo {
+    font-family: 'Inter', -apple-system, BlinkMacSystemFont, sans-serif !important;
+  }
+  
+  /* Join Highlight Styles */
+  .join-highlight {
+    background: linear-gradient(135deg, #a8d8ff, #b8e6ff);
+    color: #000 !important;
+    padding: 0.75rem 1.5rem;
+    border-radius: 1rem;
+    font-weight: 600;
+    box-shadow: 0 4px 20px rgba(168, 216, 255, 0.4);
+    animation: join-glisten 3s ease-in-out infinite;
+    position: relative;
+    overflow: hidden;
+  }
+  
+  .join-highlight::before {
+    content: '';
+    position: absolute;
+    top: -50%;
+    left: -50%;
+    width: 200%;
+    height: 200%;
+    background: linear-gradient(
+      45deg,
+      transparent,
+      rgba(255, 255, 255, 0.4),
+      transparent,
+      rgba(255, 255, 255, 0.2),
+      transparent
+    );
+    animation: shimmer 2s linear infinite;
+    transform: rotate(45deg);
+  }
+  
+  .join-highlight:hover {
+    transform: scale(1.05);
+  }
+  
+  /* Ensure plus icon is black to match the button text */
+  .join-highlight span {
+    color: #000 !important;
+  }
+  
+  @keyframes join-glisten {
+    0%, 100% { 
+      box-shadow: 0 4px 20px rgba(168, 216, 255, 0.4);
+      transform: scale(1);
+    }
+    50% { 
+      box-shadow: 0 6px 25px rgba(168, 216, 255, 0.7);
+      transform: scale(1.02);
+    }
+  }
+  
+  @keyframes shimmer {
+    0% { transform: translateX(-100%) translateY(-100%) rotate(45deg); }
+    100% { transform: translateX(100%) translateY(100%) rotate(45deg); }
+  }
+  
+  .cta-buttons {
+    display: flex;
+    gap: 1.5rem;
+    justify-content: center;
+    margin: 2rem 0;
+  }
+  
+  .cta-buttons .primary-button,
+  .cta-buttons .secondary-button {
+    font-size: 1.125rem;
+    font-weight: 600;
+    padding: 1rem 2rem;
+    border-radius: 100px;
+    border: none;
+    display: flex;
+    align-items: center;
+    gap: 0.75rem;
+    cursor: pointer;
+    text-decoration: none;
+    transition: all 0.3s ease;
+    min-width: 200px;
+    justify-content: center;
+  }
+  
+  .cta-buttons .primary-button {
+    background: rgba(64, 224, 208, 0.15);
+    color: #232323;
+    border: 2px dotted rgba(64, 224, 208, 0.6);
+    box-shadow: 0 4px 20px rgba(121, 183, 255, 0.2);
+  }
+  
+  .cta-buttons .secondary-button {
+    background: rgba(64, 224, 208, 0.15);
+    color: #232323;
+    border: 2px dotted rgba(64, 224, 208, 0.6);
+  }
+  
+  .cta-buttons .primary-button:hover {
+    background: rgba(64, 224, 208, 0.2);
+    transform: translateY(-2px);
+    box-shadow: 0 6px 24px rgba(121, 183, 255, 0.3);
+    border-color: rgba(64, 224, 208, 0.8);
+  }
+  
+  .cta-buttons .secondary-button:hover {
+    background: rgba(64, 224, 208, 0.2);
+    transform: translateY(-2px);
+    border-color: rgba(64, 224, 208, 0.8);
+  }
+  
+  .button-icon {
+    font-size: 1.25rem;
+    transition: transform 0.3s ease;
+  }
+  
+  .primary-button:hover .button-icon {
+    transform: translateX(4px);
+  }
+  
+  .secondary-button:hover .button-icon {
+    transform: rotate(90deg);
+  }
+  
+  .filter-count {
+    background: rgba(255, 255, 255, 0.3);
+    padding: 0.25rem 0.75rem;
+    border-radius: 100px;
+    font-size: 0.875rem;
+  }
+  
+  /* Featured Slider Styles */
+  .featured-slider {
+    width: 100%;
+    margin: 2rem 0;
+    position: relative;
+    overflow: hidden;
+    padding: 1rem;
+  }
+  
+  .slider-container {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 20px;
+    transition: transform 0.5s cubic-bezier(0.4, 0, 0.2, 1);
+    padding: 1rem;
+  }
+  
+  .slide {
+    position: relative;
+    background: white;
+    border-radius: 12px;
+    padding: 20px;
+    box-shadow: 0 4px 16px rgba(0, 0, 0, 0.1);
+    transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+    cursor: pointer;
+    transform-origin: center;
+    opacity: 1;
+    transform: scale(1);
+  }
+  
+  .ctrl-pick-badge {
+    position: absolute;
+    top: -12px;
+    right: 20px;
+    background: #79b7ff;
+    color: white;
+    padding: 4px 12px;
+    border-radius: 100px;
+    font-size: 0.8rem;
+    font-weight: 500;
+    display: flex;
+    align-items: center;
+    gap: 4px;
+    box-shadow: 0 2px 8px rgba(121, 183, 255, 0.2);
+    z-index: 1;
+  }
+  
+  .ctrl-pick-badge .star-icon {
+    font-size: 1rem;
+    color: #FFD700;
+  }
+  
+  .slide:hover {
+    transform: translateY(-5px) scale(1.02);
+    box-shadow: 0 8px 24px rgba(121, 183, 255, 0.2);
+  }
+  
+  .slide.active {
+    box-shadow: 0 8px 24px rgba(121, 183, 255, 0.3);
+  }
+  
+  /* Projects Grid Styles */
+  .projects-grid {
+    column-count: 2;
+    column-gap: 1.5rem;
+    margin-top: 2rem;
+  }
+  
+  @media (min-width: 900px) {
+    .projects-grid {
+      column-count: 3;
+    }
+  }
+  
+  @media (max-width: 600px) {
+    .projects-grid {
+      column-count: 1;
+    }
+  }
+  
+  .project-card,
+  .event-tile {
+    display: block;
+    width: 100%;
+    margin-bottom: 1.5rem;
+    break-inside: avoid;
+    background: white;
+    border-radius: 12px;
+    padding: 20px;
+    box-shadow: 0 4px 16px rgba(0, 0, 0, 0.1);
+    transition: all 0.3s ease;
+    cursor: pointer;
+    height: auto;
+    min-height: 0;
+    max-height: none;
+  }
+  
+  .project-card:hover {
+    transform: translateY(-4px);
+    box-shadow: 0 8px 24px rgba(121, 183, 255, 0.15);
+  }
+  
+  
+  
+  /* New project card layout styles */
+  .project-header {
+    margin-bottom: 1.5rem;
+  }
+  
+  .project-title-row {
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-start;
+    margin-bottom: 1rem;
+  }
+  
+  .project-title {
+    font-size: 1.5rem;
+    font-weight: 700;
+    color: #374151;
+    margin: 0;
+    flex: 1;
+  }
+  
+  .bookmark-icon {
+    font-size: 1.25rem;
+    color: #9ca3af;
+    cursor: pointer;
+    transition: color 0.2s ease;
+  }
+  
+  .bookmark-icon:hover {
+    color: #6b7280;
+  }
+  
+  .project-type-tag {
+    display: inline-block;
+    padding: 0.375rem 0.75rem;
+    border-radius: 100px;
+    font-size: 0.75rem;
+    font-weight: 600;
+    margin-bottom: 1rem;
+    text-align: center;
+    border: 1px solid rgba(0, 0, 0, 0.2);
+  }
+  
+  .project-type-tag.startup {
+    background: transparent;
+    color: #000;
+    border: 1px solid #000;
+  }
+  
+  .project-type-tag.business {
+    background: rgba(255, 64, 129, 0.15);
+    color: #ff4081;
+    border: 1px solid rgba(255, 64, 129, 0.3);
+  }
+  
+  .project-type-tag.small-business,
+  .project-type-tag.small-biz {
+    background: #000;
+    color: #fff;
+    border: 1px solid #000;
+  }
+  
+  /* Additional project type styles for consistency */
+  .project-type-tag.non-profit {
+    background: rgba(74, 144, 226, 0.15);
+    color: #4a90e2;
+    border: 1px solid rgba(74, 144, 226, 0.3);
+  }
+  
+  .project-type-tag.community {
+    background: rgba(255, 215, 0, 0.15);
+    color: #d4af37;
+    border: 1px solid rgba(255, 215, 0, 0.3);
+  }
+  
+  .project-type-tag.event {
+    background: rgba(255, 152, 0, 0.15);
+    color: #ff9800;
+    border: 1px solid rgba(255, 152, 0, 0.3);
+  }
+  
+  .project-type-tag.organization {
+    background: rgba(156, 39, 176, 0.15);
+    color: #9c27b0;
+    border: 1px solid rgba(156, 39, 176, 0.3);
+  }
+  
+  .project-tags {
+    display: flex;
+    gap: 0.5rem;
+    margin-bottom: 1rem;
+    flex-wrap: wrap;
+  }
+  
+  .tag {
+    padding: 0.25rem 0.5rem;
+    border-radius: 100px;
+    font-size: 0.7rem;
+    font-weight: 500;
+    background: rgba(0, 0, 0, 0.008);
+    color: #d1d5db;
+    border: 1px solid rgba(0, 0, 0, 0.02);
+  }
+  
+  /* Category tag colors - Three Color Groups */
+  
+  /* First Third: Light Blue with Blue Text */
+  .tag-category.Art,
+  .tag-category.Beauty,
+  .tag-category.Business,
+  .tag-category.Computer-Science,
+  .tag-category.Consulting,
+  .tag-category.Crafts---Handmade-Goods,
+  .tag-category.Data,
+  .tag-category.Design,
+  .tag-category.Engineering,
+  .tag-category.Entrepreneurship,
+  .tag-category.Environment,
+  .tag-category.Graphic-Design {
+    background: rgba(173, 216, 230, 0.15) !important;
+    color: #4682b4 !important;
+    border-color: rgba(173, 216, 230, 0.3) !important;
+  }
+  
+  /* Second Third: Light Pink with Black Text */
+  .tag-category.Event-Planning,
+  .tag-category.Finance,
+  .tag-category.Film,
+  .tag-category.Food---Drink,
+  .tag-category.Hairstyling---Barber,
+  .tag-category.Health,
+  .tag-category.Human-Resources,
+  .tag-category.Landscaping,
+  .tag-category.Law,
+  .tag-category.Literature,
+  .tag-category.Marketing {
+    background: rgba(255, 192, 203, 0.4) !important;
+    color: #000000 !important;
+    border-color: rgba(255, 105, 180, 0.5) !important;
+  }
+  
+  /* Third Third: Light Yellow with Black Text */
+  .tag-category.Operations,
+  .tag-category.Performing-Arts,
+  .tag-category.Photography,
+  .tag-category.Political-Science,
+  .tag-category.Product-Design,
+  .tag-category.Psychology,
+  .tag-category.Sales,
+  .tag-category.STEM,
+  .tag-category.Technology,
+  .tag-category.Tutoring-+-Education,
+  .tag-category.Writing {
+    background: rgba(255, 255, 153, 0.4) !important;
+    color: #000000 !important;
+    border-color: rgba(255, 193, 7, 0.6) !important;
+  }
+  
+  /* Default fallback for any unlisted categories */
+  .tag-category {
+    background: rgba(219, 234, 254, 0.03) !important;
+    color: #b8c5d9 !important;
+    border: 1px solid rgba(30, 64, 175, 0.02) !important;
+  }
+  
+  .project-description {
+    color: #4b5563;
+    line-height: 1.6;
+    margin-bottom: 1.5rem;
+    font-size: 0.95rem;
+  }
+  
+  .our-niche-section {
+    margin-bottom: 1.5rem;
+    background: rgba(255, 255, 255, 0.9);
+    border-radius: 20px;
+    padding: 1.5rem;
+    border: 2px solid rgba(255, 255, 255, 0.4);
+    box-shadow: 0 4px 16px rgba(0, 0, 0, 0.08), inset 0 1px 0 rgba(255, 255, 255, 0.8);
+    position: relative;
+    overflow: hidden;
+    backdrop-filter: blur(10px);
+  }
+  
+  
+  
+  .niche-header {
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+    margin-bottom: 1rem;
+    color: #374151;
+    font-size: 0.875rem;
+    font-weight: 600;
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
+  }
+  
+  .niche-icon {
+    font-size: 1rem;
+    opacity: 0.8;
+  }
+  
+  .niche-content {
+    background: rgba(255, 255, 255, 0.6);
+    padding: 1rem;
+    border-radius: 12px;
+    color: #374151;
+    font-size: 0.875rem;
+    line-height: 1.5;
+    border: 1px solid rgba(255, 255, 255, 0.4);
+  }
+  
+  .project-actions {
+    display: flex;
+    gap: 0.75rem;
+    margin-bottom: 1.5rem;
+    flex-wrap: wrap;
+  }
+  
+  .action-button {
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+    padding: 0.75rem 1rem;
+    border-radius: 100px;
+    text-decoration: none;
+    font-size: 0.875rem;
+    font-weight: 500;
+    transition: all 0.2s ease;
+    border: 1px solid #e5e7eb;
+  }
+  
+  .instagram-button, .website-button {
+    background: white;
+    color: #374151;
+  }
+  
+  .apply-button {
+    background: #f8f9fa;
+    color: #495057;
+    border: 1px solid #dee2e6;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+    transition: all 0.2s ease;
+  }
+  
+  .apply-button:hover {
+    background: #e9ecef;
+    color: #495057;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.15);
+    transform: translateY(-1px);
+  }
+  
+  .action-button:hover {
+    transform: translateY(-1px);
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+  }
+  
+  
+  
+  /* Status Tags */
+  .status-tag {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.25rem;
+    padding: 0.25rem 0.75rem;
+    border-radius: 100px;
+    font-size: 0.75rem;
+    font-weight: 500;
+  }
+  
+  .status-tag.hiring {
+    background: rgba(255, 76, 97, 0.1);
+    color: #ff4c61;
+  }
+  
+  .status-tag.positions {
+    background: rgba(121, 183, 255, 0.1);
+    color: #79b7ff;
+  }
+  
+  .status-tag.event {
+    background: rgba(255, 149, 0, 0.1);
+    color: #ff9500;
+  }
+  
+  /* Updates Button Styles */
+  .updates-button {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 0.75rem;
+    background: #79b7ff;
+    color: white;
+    padding: 1rem 1.5rem;
+    border-radius: 100px;
+    text-decoration: none;
+    font-weight: 500;
+    transition: all 0.3s ease;
+    margin: 1rem 0;
+    border: none;
+    cursor: pointer;
+    width: 100%;
+  }
+  
+  .updates-button:hover {
+    background: #5a9eff;
+    transform: translateY(-2px);
+    box-shadow: 0 4px 12px rgba(121, 183, 255, 0.2);
+    text-decoration: none;
+    color: white;
+  }
+  
+  .updates-button .button-icon {
+    transition: transform 0.3s ease;
+  }
+  
+  .updates-button:hover .button-icon {
+    transform: translateX(4px);
+  }
+  
+  /* Calendar Link Styles */
+  .calendar-link {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    text-decoration: none;
+    padding: 1.5rem;
+    border-radius: 12px;
+    transition: all 0.3s ease;
+    background: rgba(121, 183, 255, 0.05);
+    margin-top: 1rem;
+    color: inherit;
+  }
+  
+  .calendar-link:hover {
+    background: rgba(121, 183, 255, 0.1);
+    transform: translateY(-4px);
+    text-decoration: none;
+    color: inherit;
+  }
+  
+  .calendar-icon {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    margin-bottom: 1rem;
+  }
+  
+  .calendar-top {
+    background: #79b7ff;
+    color: white;
+    padding: 0.25rem 1rem;
+    border-radius: 100px;
+    font-size: 0.8rem;
+    font-weight: 500;
+    margin-bottom: 0.5rem;
+  }
+  
+  .calendar-bottom {
+    font-size: 2.5rem;
+    font-weight: 600;
+    color: #333;
+  }
+  
+  .calendar-text {
+    font-size: 0.9rem;
+    color: #666;
+    text-align: center;
+    margin: 0;
+  }
+  
+  /* Responsive Styles */
+  @media (max-width: 1024px) {
+    .slider-container {
+      grid-template-columns: repeat(2, 1fr);
+    }
+  }
+  
+  @media (max-width: 768px) {
+    .slider-container {
+      grid-template-columns: 1fr;
+    }
+    
+    .cta-buttons {
+      flex-direction: column;
+      padding: 0 1rem;
+    }
+  
+    .cta-buttons .primary-button,
+    .cta-buttons .secondary-button {
+      width: 100%;
+    }
+  
+    .calendar-link {
+      padding: 1rem;
+    }
+  
+    .calendar-bottom {
+      font-size: 3rem;
+    }
+  
+    .calendar-text {
+      font-size: 0.85rem;
+    }
+  }
+  
+  /* Pagination Styles */
+  .pagination-container {
+    display: flex;
+    justify-content: center;
+    margin: 2rem 0;
+    gap: 1rem;
+  }
+  
+  .pagination-button {
+    background: #EEF4FF;
+    color: #79b7ff;
+    border: none;
+    padding: 0.75rem 1.5rem;
+    border-radius: 100px;
+    font-size: 0.95rem;
+    font-weight: 500;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+  }
+  
+  .pagination-button:hover {
+    background: #dce7ff;
+    transform: translateY(-2px);
+  }
+  
+  .pagination-button:disabled {
+    background: #f5f5f5;
+    color: #999;
+    cursor: not-allowed;
+    transform: none;
+  }
+  
+  .pagination-button .button-icon {
+    font-size: 1.1rem;
+    transition: transform 0.3s ease;
+  }
+  
+  .pagination-button:hover:not(:disabled) .button-icon {
+    transform: translateX(4px);
+  }
+  
+  .pagination-info {
+    color: #666;
+    font-size: 0.9rem;
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+  }
+  
+  .no-results-message {
+    text-align: center;
+    padding: 2rem;
+    background: rgba(0, 0, 0, 0.02);
+    border-radius: 8px;
+    margin: 1rem 0;
+  }
+  
+  .no-results-message p {
+    color: #666;
+    margin-bottom: 1rem;
+    font-size: 1.1rem;
+  }
+  
+  .no-results-message .clear-filters {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.5rem;
+    padding: 0.5rem 1rem;
+    background: #f5f5f5;
+    border: 1px solid #ddd;
+    border-radius: 4px;
+    color: #666;
+    font-size: 0.9rem;
+    cursor: pointer;
+    transition: all 0.2s ease;
+  }
+  
+  .no-results-message .clear-filters:hover {
+    background: #eee;
+    border-color: #ccc;
+  }
+  
+  .no-results-message .clear-filters .button-icon {
+    font-size: 1.2rem;
+    line-height: 1;
+  }
+  
+  /* Close Button Styles */
+  .close-button {
+    position: absolute;
+    top: 1rem;
+    right: 1rem;
+    width: 2.5rem;
+    height: 2.5rem;
+    border-radius: 50%;
+    border: none;
+    background: rgba(0, 0, 0, 0.1);
+    color: #333;
+    font-size: 1.5rem;
+    line-height: 1;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    z-index: 1000;
+  }
+  
+  .close-button:hover {
+    background: rgba(0, 0, 0, 0.2);
+    transform: rotate(90deg);
+  }
+  
+  /* Filter Toggle Styles */
+  .filter-toggle {
+    position: relative;
+    padding-right: 3rem;
+  }
+  
+  .filter-count {
+    position: absolute;
+    right: 1rem;
+    top: 50%;
+    transform: translateY(-50%);
+    background: rgba(255, 255, 255, 0.3);
+    padding: 0.25rem 0.75rem;
+    border-radius: 100px;
+    font-size: 0.875rem;
+    min-width: 1.5rem;
+    text-align: center;
+  }
+  
+  .filter-panel {
+    background: white;
+    border-radius: 12px;
+    padding: 1.5rem;
+    margin-top: 1rem;
+    box-shadow: 0 4px 16px rgba(0, 0, 0, 0.1);
+  }
+  
+  .filter-options {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
+    gap: 1rem;
+  }
+  
+  .filter-option {
+    display: flex;
+    align-items: center;
+    gap: 0.75rem;
+    padding: 0.5rem;
+    border-radius: 8px;
+    cursor: pointer;
+    transition: all 0.2s ease;
+  }
+  
+  .filter-option:hover {
+    background: rgba(121, 183, 255, 0.05);
+  }
+  
+  .filter-option input[type="checkbox"] {
+    width: 18px;
+    height: 18px;
+    border-radius: 4px;
+    border: 2px solid #ddd;
+    appearance: none;
+    -webkit-appearance: none;
+    cursor: pointer;
+    position: relative;
+    transition: all 0.2s ease;
+  }
+  
+  .filter-option input[type="checkbox"]:checked {
+    background: #79b7ff;
+    border-color: #79b7ff;
+  }
+  
+  .filter-option input[type="checkbox"]:checked::after {
+    content: '✓';
+    color: white;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    font-size: 12px;
+  }
+  
+  /* Project Tile Popup Styles */
+  .project-tile-popup {
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background: rgba(0, 0, 0, 0.5);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    z-index: 1000;
+    opacity: 0;
+    visibility: hidden;
+    transition: opacity 0.3s ease, visibility 0.3s ease;
+  }
+  
+  .project-tile-popup.active {
+    opacity: 1;
+    visibility: visible;
+  }
+  
+  .project-tile-popup .popup-content {
+    position: relative;
+    background: white;
+    border-radius: 12px;
+    padding: 2rem;
+    max-width: 90%;
+    max-height: 90vh;
+    overflow-y: auto;
+    z-index: 1001;
+    transform: translateY(20px);
+    transition: transform 0.3s ease;
+  }
+  
+  .project-tile-popup.active .popup-content {
+    transform: translateY(0);
+  }
+  
+  .project-tile-popup .close-button {
+    position: absolute;
+    top: 1rem;
+    right: 1rem;
+    z-index: 1002;
+    cursor: pointer;
+    width: 2.5rem;
+    height: 2.5rem;
+    border-radius: 50%;
+    border: none;
+    background: rgba(0, 0, 0, 0.1);
+    color: #333;
+    font-size: 1.5rem;
+    line-height: 1;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    transition: all 0.3s ease;
+  }
+  
+  .project-tile-popup .close-button:hover {
+    background: rgba(0, 0, 0, 0.2);
+    transform: rotate(90deg);
+  }
+  
+  /* Ensure only one popup is visible at a time */
+  .project-tile-popup:not(.active) {
+    display: none;
+  }
+  
+  /* Event Tile Styles */
+  .event-tile:hover {
+    transform: translateY(-4px);
+    box-shadow: 0 8px 24px rgba(121, 183, 255, 0.15);
+  }
+  
+  .event-tile-date {
+    font-size: 0.9rem;
+    font-weight: 500;
+    color: #666;
+    margin-bottom: 0.5rem;
+  }
+  
+  .event-tile-title {
+    font-size: 1.2rem;
+    font-weight: 600;
+    margin: 0 0 0.5rem 0;
+    color: inherit;
+  }
+  
+  .event-tile-desc {
+    font-size: 0.9rem;
+    color: inherit;
+    opacity: 0.8;
+    margin: 0;
+  }
+  
+  .event-tile-category {
+    display: inline-block;
+    background: rgba(121, 183, 255, 0.1);
+    color: #79b7ff;
+    padding: 0.25rem 0.75rem;
+    border-radius: 100px;
+    font-size: 0.8rem;
+    font-weight: 500;
+    margin-bottom: 0.75rem;
+  }
+  
+  .event-tile {
+    border: 2px solid #79b7ff;
+    background: #f6f8fc;
+    position: relative;
+  }
+  
+  .event-badge {
+    position: absolute;
+    top: 16px;
+    left: 16px;
+    background: #79b7ff;
+    color: #fff;
+    font-weight: 700;
+    font-size: 0.85rem;
+    padding: 0.3rem 1rem 0.3rem 0.7rem;
+    border-radius: 100px;
+    box-shadow: 0 2px 8px rgba(121,183,255,0.10);
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+    z-index: 2;
+    letter-spacing: 1px;
+  }
+  
+  .event-badge-icon {
+    font-size: 1.1rem;
+    margin-right: 0.3rem;
+  }
+  
+  .event-tile-date {
+    margin-top: 2.2rem;
+  }
+  
+  .promo-ig-card {
+    background: #fff;
+    border: 2px solid #79b7ff;
+    box-shadow: 0 4px 16px rgba(121, 183, 255, 0.10);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    min-height: 220px;
+    transition: box-shadow 0.3s cubic-bezier(0.4,0,0.2,1), border 0.3s cubic-bezier(0.4,0,0.2,1), transform 0.3s cubic-bezier(0.4,0,0.2,1);
+    cursor: pointer;
+    text-decoration: none;
+    position: relative;
+    padding: 2rem 1.5rem;
+    will-change: transform, box-shadow, border;
+  }
+  
+  .promo-ig-card:hover {
+    box-shadow: 0 8px 24px rgba(121, 183, 255, 0.18);
+    border-color: #5a9eff;
+    transform: translateY(-4px);
+  }
+  
+  .ig-bento-content {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    width: 100%;
+    text-align: center;
+  }
+  
+  .ig-icon-wrapper {
+    margin-bottom: 1.2rem;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+  
+  .ig-icon {
+    width: 60px;
+    height: 60px;
+    display: block;
+  }
+  
+  .ig-bento-title {
+    font-size: 1.2rem;
+    font-weight: 600;
+    color: #222;
+    margin-bottom: 0.5rem;
+    letter-spacing: 0.2px;
+  }
+  
+  .ig-bento-desc {
+    color: #555;
+    font-size: 1rem;
+    margin-bottom: 0.7rem;
+  }
+  
+  .ig-bento-handle {
+    color: #79b7ff;
+    font-weight: 600;
+    font-size: 1.05rem;
+    margin-bottom: 0.4rem;
+  }
+  
+  .ig-bento-cta {
+    color: #888;
+    font-size: 0.97rem;
+    margin-top: 0.2rem;
+  }
+  
+  .activity-log-scroll {
+    min-height: 80px;
+    max-height: 260px;
+    overflow-y: auto;
+    width: 100%;
+    background: #f8fafc;
+    border-radius: 8px;
+    padding: 0.5rem 0.5rem 0.5rem 0.5rem;
+  }
+  
+  .activity-items {
+    display: block;
+    width: 100%;
+  }
+  
+  .activity-item {
+    background: #eaf2fb;
+    color: #234;
+    border-radius: 6px;
+    padding: 0.7em 1em;
+    margin-bottom: 0.5em;
+    font-size: 1em;
+    line-height: 1.5;
+    box-shadow: 0 1px 4px rgba(121,183,255,0.07);
+  }
+  
+  .promo-product-card {
+    background: #fff;
+    border: 2px solid #79b7ff;
+    box-shadow: 0 4px 16px rgba(121, 183, 255, 0.10);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    min-height: 220px;
+    transition: box-shadow 0.3s cubic-bezier(0.4,0,0.2,1), border 0.3s cubic-bezier(0.4,0,0.2,1), transform 0.3s cubic-bezier(0.4,0,0.2,1);
+    cursor: pointer;
+    text-decoration: none;
+    position: relative;
+    padding: 2rem 1.5rem;
+    will-change: transform, box-shadow, border;
+  }
+  
+  .promo-product-card:hover {
+    box-shadow: 0 8px 24px rgba(121, 183, 255, 0.18);
+    border-color: #5a9eff;
+    transform: translateY(-4px);
+  }
+  
+  .product-bento-content {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    width: 100%;
+    text-align: center;
+  }
+  
+  .product-icon-wrapper {
+    margin-bottom: 1.2rem;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+  
+  .product-icon {
+    width: 60px;
+    height: 60px;
+    display: block;
+  }
+  
+  .product-bento-title {
+    font-size: 1.2rem;
+    font-weight: 600;
+    color: #222;
+    margin-bottom: 0.5rem;
+    letter-spacing: 0.2px;
+  }
+  
+  .product-bento-desc {
+    color: #555;
+    font-size: 1rem;
+    margin-bottom: 0.7rem;
+  }
+  
+  .product-bento-cta {
+    color: #79b7ff;
+    font-weight: 600;
+    font-size: 1.05rem;
+    margin-top: 0.4rem;
+  }
+  
+  /* Product Card Styles */
+  .product-card {
+    background: #ffffff;
+    border: none;
+    position: relative;
+    padding: 2rem;
+    display: flex;
+    flex-direction: column;
+    box-shadow: 0 4px 20px rgba(121, 183, 255, 0.15);
+    transition: all 0.3s ease;
+  }
+  
+  .product-card:hover {
+    transform: translateY(-4px);
+    box-shadow: 0 8px 30px rgba(121, 183, 255, 0.25);
+  }
+  
+  .product-card .business-name {
+    font-size: 0.9rem;
+    font-weight: 600;
+    color: #79b7ff;
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
+    margin-bottom: 0.5rem;
+  }
+  
+  .product-card .project-title {
+    font-size: 1.5rem;
+    font-weight: 700;
+    color: #1a1a1a;
+    margin-bottom: 1rem;
+    line-height: 1.3;
+  }
+  
+  .product-card .project-tags {
+    display: flex;
+    gap: 0.75rem;
+    margin-bottom: 1.5rem;
+  }
+  
+  .product-card .tag {
+    padding: 0.4rem 1rem;
+    border-radius: 100px;
+    font-size: 0.85rem;
+    font-weight: 500;
+  }
+  
+  .product-card .tag-type {
+    background: rgba(121, 183, 255, 0.1);
+    color: #79b7ff;
+  }
+  
+  .product-card .tag-price {
+    background: rgba(0, 200, 83, 0.1);
+    color: #00c853;
+  }
+  
+  .product-card .project-description {
+    color: #555;
+    font-size: 1rem;
+    line-height: 1.6;
+    margin-bottom: 2rem;
+    flex-grow: 1;
+  }
+  
+  .view-product-button {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    gap: 0.5rem;
+    background: rgba(64, 224, 208, 0.15);
+    color: #232323;
+    padding: 1rem 2rem;
+    border-radius: 100px;
+    text-decoration: none;
+    font-weight: 600;
+    font-size: 1rem;
+    transition: all 0.3s ease;
+    margin-top: auto;
+    border: 2px dotted rgba(64, 224, 208, 0.6);
+    cursor: pointer;
+    width: 100%;
+  }
+  
+  .view-product-button:hover {
+    background: rgba(64, 224, 208, 0.2);
+    transform: translateY(-2px);
+    box-shadow: 0 4px 12px rgba(121, 183, 255, 0.2);
+    text-decoration: none;
+    color: #232323;
+    border-color: rgba(64, 224, 208, 0.8);
+  }
+  
+  .view-product-button .button-icon {
+    transition: transform 0.3s ease;
+    font-size: 1.1rem;
+  }
+  
+  .view-product-button:hover .button-icon {
+    transform: translateX(4px);
+  }
+  
+  .bento-card, .feature-card, .mission-card, .founder-card, .project-card, .event-tile, .service-tile, .promo-ig-card, .promo-product-card, .resource-item, .story-item, .help-item, .metric-item, .category-item, .step-item, .community-item, .form-card, .info-card, .metric-card {
+      background: #ecf5ff !important;
+      color: #232323 !important;
+      border: none !important;
+      box-shadow: none !important;
+  }
+  
+  .primary-button, .secondary-button, .updates-button, .pagination-button, .view-product-button, .connect-button, .search-button, .close-button, .slider-button, .load-more-button, .submit-button {
+      background: rgba(64, 224, 208, 0.15) !important;
+      color: #232323 !important;
+      border: 2px dotted rgba(64, 224, 208, 0.6) !important;
+      box-shadow: none !important;
+  }
+  
+  .bento-card *, .feature-card *, .mission-card *, .founder-card *, .project-card *, .event-tile *, .service-tile *, .promo-ig-card *, .promo-product-card *, .resource-item *, .story-item *, .help-item *, .metric-item *, .category-item *, .step-item *, .community-item *, .form-card *, .info-card *, .metric-card * {
+      color: #232323 !important;
+  }
+  
+  /* ULTIMATE OVERRIDE - Ensure ALL headers use Lucida Console regardless of any other CSS */
+  h1, h2, h3, h4, h5, h6,
+  * h1, * h2, * h3, * h4, * h5, * h6,
+  html h1, html h2, html h3, html h4, html h5, html h6,
+  body h1, body h2, body h3, body h4, body h5, body h6,
+  main h1, main h2, main h3, main h4, main h5, main h6,
+  section h1, section h2, section h3, section h4, section h5, section h6,
+  div h1, div h2, div h3, div h4, div h5, div h6,
+  [class*=""] h1, [class*=""] h2, [class*=""] h3, [class*=""] h4, [class*=""] h5, [class*=""] h6,
+  .section-title, .enhancement-title, .network-title, .idea-title,
+  .be-hero h1, .biz-enhancer-content h1, .network-content h1, .niche-lab-content h1,
+  .submission-section h1, .submission-section h2, .submission-section h3, .submission-section h4, .submission-section h5, .submission-section h6,
+  .hero-section h1, .hero-section h2, .hero-section h3,
+  .content-section h1, .content-section h2, .content-section h3, .content-section h4, .content-section h5, .content-section h6,
+  .main-content h1, .main-content h2, .main-content h3, .main-content h4, .main-content h5, .main-content h6,
+  .page-header h1, .page-header h2, .page-header h3, .page-header h4, .page-header h5, .page-header h6,
+  .intro-section h1, .intro-section h2, .intro-section h3, .intro-section h4, .intro-section h5, .intro-section h6,
+  .features-section h1, .features-section h2, .features-section h3, .features-section h4, .features-section h5, .features-section h6,
+  .about-section h1, .about-section h2, .about-section h3, .about-section h4, .about-section h5, .about-section h6,
+  .projects-section h1, .projects-section h2, .projects-section h3, .projects-section h4, .projects-section h5, .projects-section h6,
+  .resources-section h1, .resources-section h2, .resources-section h3, .resources-section h4, .resources-section h5, .resources-section h6,
+  .community-section h1, .community-section h2, .community-section h3, .community-section h4, .community-section h5, .community-section h6,
+  .contact-section h1, .contact-section h2, .contact-section h3, .contact-section h4, .contact-section h5, .contact-section h6,
+  .form-section h1, .form-section h2, .form-section h3, .form-section h4, .form-section h5, .form-section h6,
+  .niche-section h1, .niche-section h2, .niche-section h3, .niche-section h4, .niche-section h5, .niche-section h6,
+  .growth-section h1, .growth-section h2, .growth-section h3, .growth-section h4, .growth-section h5, .growth-section h6,
+  .digital-section h1, .digital-section h2, .digital-section h3, .digital-section h4, .digital-section h5, .digital-section h6,
+  .social-section h1, .social-section h2, .social-section h3, .social-section h4, .social-section h5, .social-section h6,
+  .qr-section h1, .qr-section h2, .qr-section h3, .qr-section h4, .qr-section h5, .qr-section h6,
+  .guide-section h1, .guide-section h2, .guide-section h3, .guide-section h4, .guide-section h5, .guide-section h6,
+  .project-card h1, .project-card h2, .project-card h3, .project-card h4, .project-card h5, .project-card h6,
+  .event-tile h1, .event-tile h2, .event-tile h3, .event-tile h4, .event-tile h5, .event-tile h6,
+  .product-card h1, .product-card h2, .product-card h3, .product-card h4, .product-card h5, .product-card h6,
+  .promo-ig-card h1, .promo-ig-card h2, .promo-ig-card h3, .promo-ig-card h4, .promo-ig-card h5, .promo-ig-card h6,
+  .promo-product-card h1, .promo-product-card h2, .promo-product-card h3, .promo-product-card h4, .promo-product-card h5, .promo-product-card h6 {
+    font-family: 'Lucida Console', 'monospace !important;
+  }
+  
+  /* ULTIMATE FINAL OVERRIDE - Force Lucida Console on ALL headers with maximum specificity */
+  html body h1, html body h2, html body h3, html body h4, html body h5, html body h6,
+  html body .section-title, html body .idea-title, html body .network-title, 
+  html body .enhancement-title, html body .projects-title, html body .niche-title,
+  html body h1.section-title, html body h2.section-title, html body h3.section-title,
+  html body h1.idea-title, html body h2.idea-title, html body h3.idea-title,
+  html body h1.network-title, html body h2.network-title, html body h3.network-title,
+  html body h1.enhancement-title, html body h2.enhancement-title, html body h3.enhancement-title,
+  html body h1.projects-title, html body h2.projects-title, html body h3.projects-title,
+  html body h1.niche-title, html body h2.niche-title, html body h3.niche-title,
+  html body [class*="title"] h1, html body [class*="title"] h2, html body [class*="title"] h3,
+  html body [class*="title"] h4, html body [class*="title"] h5, html body [class*="title"] h6 {
+    font-family: 'Lucida Console', monospace !important;
+  }
+  
+  /* Navigation bar headers should NOT use Lucida Console - keep them as is */
+  .main-nav h1, .main-nav h2, .main-nav h3, .main-nav h4, .main-nav h5, .main-nav h6,
+  .logo, .nav-link, .header-nav h1, .header-nav h2, .header-nav h3, .header-nav h4, .header-nav h5, .header-nav h6,
+  html body .main-nav h1, html body .main-nav h2, html body .main-nav h3, 
+  html body .main-nav h4, html body .main-nav h5, html body .main-nav h6,
+  html body .logo, html body .nav-link, html body header nav h1, 
+  html body header nav h2, html body header nav h3, html body header nav h4, 
+  html body header nav h5, html body header nav h6,
+  html body nav h1, html body nav h2, html body nav h3,
+  html body nav h4, html body nav h5, html body nav h6 {
+    font-family: 'Inter', -apple-system, BlinkMacSystemFont, sans-serif !important;
+  }
+  
+  /* ABSOLUTE FINAL MEGA OVERRIDE - Every single header element must use Lucida Console */
+  * h1, * h2, * h3, * h4, * h5, * h6 {
+    font-family: "Lucida Console", "monospace !important;
+  }
+  
+  /* Force override on all header combinations and classes */
+  h1, h2, h3, h4, h5, h6,
+  .section-title, .idea-title, .network-title, .enhancement-title, .projects-title, .niche-title,
+  h1.section-title, h2.section-title, h3.section-title, h4.section-title, h5.section-title, h6.section-title,
+  h1.idea-title, h2.idea-title, h3.idea-title, h4.idea-title, h5.idea-title, h6.idea-title,
+  h1.network-title, h2.network-title, h3.network-title, h4.network-title, h5.network-title, h6.network-title,
+  h1.enhancement-title, h2.enhancement-title, h3.enhancement-title, h4.enhancement-title, h5.enhancement-title, h6.enhancement-title,
+  h1.projects-title, h2.projects-title, h3.projects-title, h4.projects-title, h5.projects-title, h6.projects-title,
+  h1.niche-title, h2.niche-title, h3.niche-title, h4.niche-title, h5.niche-title, h6.niche-title,
+  [class*="title"], [class*="header"], [class*="heading"] {
+    font-family: "Lucida Console", "monospace !important;
+  }
+  
+  /* But navigation elements stay with their original font */
+  .main-nav *, .logo, .nav-link, header nav *, nav a {
+    font-family: 'Inter', -apple-system, BlinkMacSystemFont, sans-serif !important;
+  }
