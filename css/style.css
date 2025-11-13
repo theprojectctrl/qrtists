@@ -1,0 +1,105 @@
+body, main, section, header, footer {
+    background: #fffcfc !important;
+    color: #232323 !important;
+  }
+  
+  .bento-card, .feature-card, .mission-card, .founder-card, .project-card, .event-tile, .service-tile, .promo-ig-card, .promo-product-card, .resource-item, .story-item, .help-item, .metric-item, .category-item, .step-item, .community-item, .form-card, .info-card, .metric-card {
+      background: #ecf5ff !important;
+      color: #232323 !important;
+      border: none !important;
+      box-shadow: none !important;
+  }
+  
+  .primary-button, .secondary-button, .updates-button, .pagination-button, .view-product-button, .connect-button, .search-button, .close-button, .slider-button, .load-more-button, .submit-button {
+      background: rgba(64, 224, 208, 0.15) !important;
+      color: #232323 !important;
+      border: 2px dotted rgba(64, 224, 208, 0.6) !important;
+      box-shadow: none !important;
+  }
+  
+  .bento-card *, .feature-card *, .mission-card *, .founder-card *, .project-card *, .event-tile *, .service-tile *, .promo-ig-card *, .promo-product-card *, .resource-item *, .story-item *, .help-item *, .metric-item *, .category-item *, .step-item *, .community-item *, .form-card *, .info-card *, .metric-card * {
+      color: #232323 !important;
+  }
+  
+  body {
+    margin: 0;
+    font-family: Helvetica, sans-serif;
+    background: #f8f9fa;
+    color: #333;
+  }
+  
+  /* ULTIMATE OVERRIDE - Ensure ALL headers use Lucida Console regardless of any other CSS */
+  h1, h2, h3, h4, h5, h6,
+  * h1, * h2, * h3, * h4, * h5, * h6,
+  html h1, html h2, html h3, html h4, html h5, html h6,
+  body h1, body h2, body h3, body h4, body h5, body h6,
+  main h1, main h2, main h3, main h4, main h5, main h6,
+  section h1, section h2, section h3, section h4, section h5, section h6,
+  div h1, div h2, div h3, div h4, div h5, div h6,
+  [class*=""] h1, [class*=""] h2, [class*=""] h3, [class*=""] h4, [class*=""] h5, [class*=""] h6,
+  .section-title, .enhancement-title, .network-title, .idea-title,
+  .be-hero h1, .biz-enhancer-content h1, .network-content h1, .niche-lab-content h1,
+  .submission-section h1, .submission-section h2, .submission-section h3, .submission-section h4, .submission-section h5, .submission-section h6,
+  .hero-section h1, .hero-section h2, .hero-section h3,
+  .content-section h1, .content-section h2, .content-section h3, .content-section h4, .content-section h5, .content-section h6,
+  .main-content h1, .main-content h2, .main-content h3, .main-content h4, .main-content h5, .main-content h6,
+  .page-header h1, .page-header h2, .page-header h3, .page-header h4, .page-header h5, .page-header h6,
+  .intro-section h1, .intro-section h2, .intro-section h3, .intro-section h4, .intro-section h5, .intro-section h6,
+  .features-section h1, .features-section h2, .features-section h3, .features-section h4, .features-section h5, .features-section h6,
+  .about-section h1, .about-section h2, .about-section h3, .about-section h4, .about-section h5, .about-section h6,
+  .projects-section h1, .projects-section h2, .projects-section h3, .projects-section h4, .projects-section h5, .projects-section h6,
+  .resources-section h1, .resources-section h2, .resources-section h3, .resources-section h4, .resources-section h5, .resources-section h6,
+  .community-section h1, .community-section h2, .community-section h3, .community-section h4, .community-section h5, .community-section h6,
+  .contact-section h1, .contact-section h2, .contact-section h3, .contact-section h4, .contact-section h5, .contact-section h6,
+  .form-section h1, .form-section h2, .form-section h3, .form-section h4, .form-section h5, .form-section h6,
+  .niche-section h1, .niche-section h2, .niche-section h3, .niche-section h4, .niche-section h5, .niche-section h6,
+  .growth-section h1, .growth-section h2, .growth-section h3, .growth-section h4, .growth-section h5, .growth-section h6,
+  .digital-section h1, .digital-section h2, .digital-section h3, .digital-section h4, .digital-section h5, .digital-section h6,
+  .social-section h1, .social-section h2, .social-section h3, .social-section h4, .social-section h5, .social-section h6,
+  .qr-section h1, .qr-section h2, .qr-section h3, .qr-section h4, .qr-section h5, .qr-section h6,
+  .guide-section h1, .guide-section h2, .guide-section h3, .guide-section h4, .guide-section h5, .guide-section h6 {
+    font-family: 'Lucida Console', monospace !important;
+  }
+  
+  /* Navigation bar headers should NOT use Lucida Console - keep them as is */
+  nav h1, nav h2, nav h3, nav h4, nav h5, nav h6,
+  header nav h1, header nav h2, header nav h3, header nav h4, header nav h5, header nav h6 {
+    font-family: inherit !important;
+  }
+  
+  header, footer {
+    background-color: #e6f0ff;
+    padding: 1rem 2rem;
+    text-align: center;
+  }
+  
+  nav a {
+    margin: 0 1rem;
+    text-decoration: none;
+    color: #0077cc;
+    font-weight: bold;
+  }
+  
+  main {
+    padding: 2rem;
+    max-width: 1000px;
+    margin: auto;
+  }
+  
+  section {
+    margin-bottom: 2rem;
+  }
+  
+  footer {
+    font-size: 0.9rem;
+    color: #666;
+  }
+  
+  form input, form textarea, form select {
+    width: 100%;
+    padding: 0.7rem;
+    margin-bottom: 1rem;
+    border: 1px solid #ccc;
+    border-radius: 6px;
+  }
+  
